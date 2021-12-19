@@ -2,7 +2,7 @@ import { aws_config as config } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 
 export interface OrgConfigRulesProps {
-  readonly region: string,
+  readonly region: string;
   // use any to avoid jsii build error
   readonly configRulesAll: any[];
   readonly configRulesOnlyUsEast1?: any[];
@@ -19,7 +19,7 @@ export class OrgConfigRules extends Construct {
 
     const { region, configRulesAll, configRulesOnlyUsEast1, configExcludedAccounts } =
       props;
-    const rules = configRulesAll.concat(region == 'us-east-1' ? configRulesOnlyUsEast1 : [])
+    const rules = configRulesAll.concat(region == 'us-east-1' ? configRulesOnlyUsEast1 : []);
 
     rules.forEach((rule) => {
       new config.CfnOrganizationConfigRule(
@@ -28,12 +28,12 @@ export class OrgConfigRules extends Construct {
         {
           organizationConfigRuleName: `${rule.ruleIdentifier}`,
           organizationManagedRuleMetadata: {
-            ...(rule?.inputParameters ?  {inputParameters: rule.inputParameters} : {}),
+            ...(rule?.inputParameters ? { inputParameters: rule.inputParameters } : {}),
             ruleIdentifier: rule.ruleIdentifier,
           },
           excludedAccounts: configExcludedAccounts,
         },
-      )
+      );
     });
   }
 }
