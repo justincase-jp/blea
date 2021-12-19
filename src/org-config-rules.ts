@@ -2,11 +2,11 @@ import { aws_config as config } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 
 export interface OrgConfigRulesProps {
-  region: string,
+  readonly region: string,
   // use any to avoid jsii build error
-  configRulesAll: any[];
-  configRulesOnlyUsEast1?: any[];
-  configExcludedAccounts?: string[];
+  readonly configRulesAll: any[];
+  readonly configRulesOnlyUsEast1?: any[];
+  readonly configExcludedAccounts?: string[];
 }
 
 export class OrgConfigRules extends Construct {
