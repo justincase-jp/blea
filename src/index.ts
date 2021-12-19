@@ -1,1 +1,1 @@
-export * from "./OrgConfigRules"
+export * from "./org-config-rules"
