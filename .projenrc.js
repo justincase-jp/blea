@@ -21,4 +21,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   // packageName: undefined,  /* The "name" in package.json. */
   // release: undefined,      /* Add release management to this project. */
 });
+const common_exclude = ['cdk.out', 'cdk.context.json', 'yarn-error.log', 'coverage'];
+project.gitignore.exclude(...common_exclude);
+
 project.synth();

@@ -42,7 +42,114 @@ new OrgConfigRules(scope: Construct, id: string, props: OrgConfigRulesProps)
 
 
 
+### OrgEventStack <a name="blea.OrgEventStack" id="bleaorgeventstack"></a>
+
+#### Initializers <a name="blea.OrgEventStack.Initializer" id="bleaorgeventstackinitializer"></a>
+
+```typescript
+import { OrgEventStack } from 'blea'
+
+new OrgEventStack(scope: Construct, id: string, props: EventSnsProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| [`scope`](#bleaorgeventstackparameterscope)<span title="Required">*</span> | [`constructs.Construct`](#constructs.Construct) | *No description.* |
+| [`id`](#bleaorgeventstackparameterid)<span title="Required">*</span> | `string` | *No description.* |
+| [`props`](#bleaorgeventstackparameterprops)<span title="Required">*</span> | [`blea.EventSnsProps`](#blea.EventSnsProps) | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="blea.OrgEventStack.parameter.scope" id="bleaorgeventstackparameterscope"></a>
+
+- *Type:* [`constructs.Construct`](#constructs.Construct)
+
+---
+
+##### `id`<sup>Required</sup> <a name="blea.OrgEventStack.parameter.id" id="bleaorgeventstackparameterid"></a>
+
+- *Type:* `string`
+
+---
+
+##### `props`<sup>Required</sup> <a name="blea.OrgEventStack.parameter.props" id="bleaorgeventstackparameterprops"></a>
+
+- *Type:* [`blea.EventSnsProps`](#blea.EventSnsProps)
+
+---
+
+
+
+#### Properties <a name="Properties" id="properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| [`topic`](#bleaorgeventstackpropertytopic)<span title="Required">*</span> | [`aws-cdk-lib.aws_sns.Topic`](#aws-cdk-lib.aws_sns.Topic) | *No description.* |
+
+---
+
+##### `topic`<sup>Required</sup> <a name="blea.OrgEventStack.property.topic" id="bleaorgeventstackpropertytopic"></a>
+
+```typescript
+public readonly topic: Topic;
+```
+
+- *Type:* [`aws-cdk-lib.aws_sns.Topic`](#aws-cdk-lib.aws_sns.Topic)
+
+---
+
+
 ## Structs <a name="Structs" id="structs"></a>
+
+### EventSnsProps <a name="blea.EventSnsProps" id="bleaeventsnsprops"></a>
+
+#### Initializer <a name="[object Object].Initializer" id="object-objectinitializer"></a>
+
+```typescript
+import { EventSnsProps } from 'blea'
+
+const eventSnsProps: EventSnsProps = { ... }
+```
+
+#### Properties <a name="Properties" id="properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| [`accountId`](#bleaeventsnspropspropertyaccountid)<span title="Required">*</span> | `string` | *No description.* |
+| [`kmsAliasName`](#bleaeventsnspropspropertykmsaliasname)<span title="Required">*</span> | `string` | *No description.* |
+| [`region`](#bleaeventsnspropspropertyregion)<span title="Required">*</span> | `string` | *No description.* |
+
+---
+
+##### `accountId`<sup>Required</sup> <a name="blea.EventSnsProps.property.accountId" id="bleaeventsnspropspropertyaccountid"></a>
+
+```typescript
+public readonly accountId: string;
+```
+
+- *Type:* `string`
+
+---
+
+##### `kmsAliasName`<sup>Required</sup> <a name="blea.EventSnsProps.property.kmsAliasName" id="bleaeventsnspropspropertykmsaliasname"></a>
+
+```typescript
+public readonly kmsAliasName: string;
+```
+
+- *Type:* `string`
+
+---
+
+##### `region`<sup>Required</sup> <a name="blea.EventSnsProps.property.region" id="bleaeventsnspropspropertyregion"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* `string`
+
+---
 
 ### OrgConfigRulesProps <a name="blea.OrgConfigRulesProps" id="bleaorgconfigrulesprops"></a>
 
