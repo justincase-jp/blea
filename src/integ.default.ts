@@ -1,5 +1,5 @@
 import { App, Stack } from 'aws-cdk-lib';
-import { OrgEventStack, OrgSlackStack } from './index';
+import { OrgEventStack, OrgSlackStack, OrgHealthStack } from './index';
 
 const app = new App();
 const stack = new Stack(app, 'MyStack');
@@ -15,4 +15,10 @@ new OrgSlackStack(stack, 'OrgSlackStack', {
   workspaceId: 'xxxxxxx',
   channelId: 'xxxxxxx',
   slackChannelConfigurationName: 'xxxxxxx',
+});
+
+// rootAccount
+new OrgHealthStack(stack, 'OrgHealthStack', {
+  orgHealthMinutesInterval: '30',
+  orgHealthSlackWebHookPath: '/services/xxxxxx/xxxxxx/xxxxxxxxx',
 });

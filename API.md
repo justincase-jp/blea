@@ -99,6 +99,46 @@ public readonly topic: Topic;
 ---
 
 
+### OrgHealthStack <a name="blea.OrgHealthStack" id="bleaorghealthstack"></a>
+
+#### Initializers <a name="blea.OrgHealthStack.Initializer" id="bleaorghealthstackinitializer"></a>
+
+```typescript
+import { OrgHealthStack } from 'blea'
+
+new OrgHealthStack(scope: Construct, id: string, props: OrgHealthProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| [`scope`](#bleaorghealthstackparameterscope)<span title="Required">*</span> | [`constructs.Construct`](#constructs.Construct) | *No description.* |
+| [`id`](#bleaorghealthstackparameterid)<span title="Required">*</span> | `string` | *No description.* |
+| [`props`](#bleaorghealthstackparameterprops)<span title="Required">*</span> | [`blea.OrgHealthProps`](#blea.OrgHealthProps) | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="blea.OrgHealthStack.parameter.scope" id="bleaorghealthstackparameterscope"></a>
+
+- *Type:* [`constructs.Construct`](#constructs.Construct)
+
+---
+
+##### `id`<sup>Required</sup> <a name="blea.OrgHealthStack.parameter.id" id="bleaorghealthstackparameterid"></a>
+
+- *Type:* `string`
+
+---
+
+##### `props`<sup>Required</sup> <a name="blea.OrgHealthStack.parameter.props" id="bleaorghealthstackparameterprops"></a>
+
+- *Type:* [`blea.OrgHealthProps`](#blea.OrgHealthProps)
+
+---
+
+
+
+
+
 ### OrgSlackStack <a name="blea.OrgSlackStack" id="bleaorgslackstack"></a>
 
 #### Initializers <a name="blea.OrgSlackStack.Initializer" id="bleaorgslackstackinitializer"></a>
@@ -249,6 +289,45 @@ public readonly configRulesOnlyUsEast1: any[];
 ```
 
 - *Type:* `any`[]
+
+---
+
+### OrgHealthProps <a name="blea.OrgHealthProps" id="bleaorghealthprops"></a>
+
+#### Initializer <a name="[object Object].Initializer" id="object-objectinitializer"></a>
+
+```typescript
+import { OrgHealthProps } from 'blea'
+
+const orgHealthProps: OrgHealthProps = { ... }
+```
+
+#### Properties <a name="Properties" id="properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| [`orgHealthMinutesInterval`](#bleaorghealthpropspropertyorghealthminutesinterval)<span title="Required">*</span> | `string` | *No description.* |
+| [`orgHealthSlackWebHookPath`](#bleaorghealthpropspropertyorghealthslackwebhookpath)<span title="Required">*</span> | `string` | *No description.* |
+
+---
+
+##### `orgHealthMinutesInterval`<sup>Required</sup> <a name="blea.OrgHealthProps.property.orgHealthMinutesInterval" id="bleaorghealthpropspropertyorghealthminutesinterval"></a>
+
+```typescript
+public readonly orgHealthMinutesInterval: string;
+```
+
+- *Type:* `string`
+
+---
+
+##### `orgHealthSlackWebHookPath`<sup>Required</sup> <a name="blea.OrgHealthProps.property.orgHealthSlackWebHookPath" id="bleaorghealthpropspropertyorghealthslackwebhookpath"></a>
+
+```typescript
+public readonly orgHealthSlackWebHookPath: string;
+```
+
+- *Type:* `string`
 
 ---
 
