@@ -9,7 +9,6 @@ import {
 } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 
-
 export interface EventSnsProps {
   readonly region: string;
   readonly accountId: string;
