@@ -1,5 +1,10 @@
 import { App, Stack } from 'aws-cdk-lib';
-import { OrgEventStack, OrgSlackStack, OrgHealthStack } from './index';
+import {
+  OrgEventStack,
+  OrgSlackStack,
+  OrgHealthStack,
+  OrgConfigToSecurityhub,
+} from './index';
 
 const app = new App();
 const stack = new Stack(app, 'MyStack');
@@ -15,6 +20,12 @@ new OrgSlackStack(stack, 'OrgSlackStack', {
   workspaceId: 'xxxxxxx',
   channelId: 'xxxxxxx',
   slackChannelConfigurationName: 'xxxxxxx',
+});
+
+new OrgConfigToSecurityhub(stack, 'OrgConfigToSecurityhub', {
+  auditAccountId: '123456789012',
+  snsTopicArn: 'arn:aws:sns:ap-northeast-1:123456789012:xxxxxxx',
+  controlTowerHomeRegion: 'ap-northeast-1',
 });
 
 // rootAccount
