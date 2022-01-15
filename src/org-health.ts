@@ -11,12 +11,17 @@ import { Construct } from 'constructs';
 export interface OrgHealthProps {
   readonly orgHealthMinutesInterval: string;
   readonly orgHealthSlackWebHookPath: string;
+  readonly notifyEventTypeCodes: any;
 }
 
 export class OrgHealthStack extends Construct {
   constructor(scope: Construct, id: string, props: OrgHealthProps) {
     super(scope, id);
-    const { orgHealthMinutesInterval, orgHealthSlackWebHookPath } = props;
+    const {
+      orgHealthMinutesInterval,
+      orgHealthSlackWebHookPath,
+      notifyEventTypeCodes,
+    } = props;
 
     const roleLambda = new iam.Role(this, 'roleLambda', {
       assumedBy: new iam.ServicePrincipal('lambda.amazonaws.com'),
@@ -34,6 +39,7 @@ export class OrgHealthStack extends Construct {
       environment: {
         slackWebhook: orgHealthSlackWebHookPath,
         interval: orgHealthMinutesInterval,
+        notifyEventTypeCodes: JSON.stringify(notifyEventTypeCodes),
       },
       role: roleLambda,
       timeout: Duration.seconds(300),

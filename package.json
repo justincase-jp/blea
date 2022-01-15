@@ -32,6 +32,7 @@
     "organization": false
   },
   "devDependencies": {
+    "@aws-sdk/client-health": "^3.47.0",
     "@types/jest": "*",
     "@types/lodash": "^4.14.178",
     "@types/node": "^12",
@@ -51,6 +52,7 @@
     "jsii-docgen": "^4.2.14",
     "jsii-pacmak": "^1.49.0",
     "json-schema": "^0.4.0",
+    "lodash": "^4.17.21",
     "npm-check-updates": "^12",
     "projen": "^0.44.0",
     "standard-version": "^9",
@@ -60,10 +62,6 @@
   "peerDependencies": {
     "aws-cdk-lib": "^2.1.0",
     "constructs": "^10.0.5"
-  },
-  "dependencies": {
-    "@aws-sdk/client-health": "^3.46.0",
-    "lodash": "^4.17.21"
   },
   "bundledDependencies": [],
   "keywords": [

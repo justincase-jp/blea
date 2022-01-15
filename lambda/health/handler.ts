@@ -1,6 +1,6 @@
-import { OrganizationEvent } from "@aws-sdk/client-health";
-import { HealthAPI } from "./healthClass";
-import { postSlackMessage } from "./slack-webhook-api";
+import { OrganizationEvent } from '@aws-sdk/client-health';
+import { HealthAPI } from './healthClass';
+import { postSlackMessage } from './slack-webhook-api';
 
 type OrganizationEventWithAccountId = {
   accountId?: string;
@@ -9,8 +9,9 @@ type OrganizationEventWithAccountId = {
 type eventType = {
   minutesStartFrom?: number;
 };
-const slackWebhookPath = process.env.slackWebhook || "";
-const interval = process.env.interval || "";
+const slackWebhookPath = process.env.slackWebhook || '';
+const interval = process.env.interval || '';
+const notifyEventTypeCodes = JSON.parse(process.env.notifyEventTypeCodes || '');
 
 const generateSlackMessage = (event: OrganizationEventWithAccountId) => {
   const {
@@ -23,62 +24,62 @@ const generateSlackMessage = (event: OrganizationEventWithAccountId) => {
     accountId,
   } = event;
   const baseUrl =
-    eventTypeCategory === "scheduledChange"
-      ? "https://phd.aws.amazon.com/phd/home#/dashboard/scheduled-changes"
-      : eventTypeCategory === "issue"
-      ? "https://phd.aws.amazon.com/phd/home#/dashboard/open-issues"
-      : eventTypeCategory === "accountNotification"
-      ? "https://phd.aws.amazon.com/phd/home#/dashboard/other-notifications"
-      : "";
+    eventTypeCategory === 'scheduledChange'
+      ? 'https://phd.aws.amazon.com/phd/home#/dashboard/scheduled-changes'
+      : eventTypeCategory === 'issue'
+      ? 'https://phd.aws.amazon.com/phd/home#/dashboard/open-issues'
+      : eventTypeCategory === 'accountNotification'
+      ? 'https://phd.aws.amazon.com/phd/home#/dashboard/other-notifications'
+      : '';
 
   const slackMessage = [
     {
-      type: "header",
+      type: 'header',
       text: {
-        type: "plain_text",
-        text: "orgHealth",
+        type: 'plain_text',
+        text: 'orgHealth',
         emoji: true,
       },
     },
     {
-      type: "section",
+      type: 'section',
       fields: [
         {
-          type: "mrkdwn",
+          type: 'mrkdwn',
           text: `*accountId:*\n${accountId}`,
         },
         {
-          type: "mrkdwn",
+          type: 'mrkdwn',
           text: `*region:*\n${region}`,
         },
       ],
     },
     {
-      type: "section",
+      type: 'section',
       fields: [
         {
-          type: "mrkdwn",
+          type: 'mrkdwn',
           text: `*service:*\n${service}`,
         },
         {
-          type: "mrkdwn",
+          type: 'mrkdwn',
           text: `*eventTypeCode:*\n${eventTypeCode}`,
         },
         {
-          type: "mrkdwn",
+          type: 'mrkdwn',
           text: `*eventScopeCode:*\n${eventScopeCode}`,
         },
         {
-          type: "mrkdwn",
+          type: 'mrkdwn',
           text: `*eventTypeCategory:*\n${eventTypeCategory}`,
         },
       ],
     },
     {
-      type: "section",
+      type: 'section',
       fields: [
         {
-          type: "mrkdwn",
+          type: 'mrkdwn',
           text: `*url:*\n${baseUrl}?eventID=${arn}&eventTab=details`,
         },
       ],
@@ -88,7 +89,7 @@ const generateSlackMessage = (event: OrganizationEventWithAccountId) => {
 };
 
 export const handler = async (event: eventType) => {
-  const heatlhApi = new HealthAPI();
+  const heatlhApi = new HealthAPI(notifyEventTypeCodes);
   const fromTime = new Date();
   const now = new Date();
   const diff = event.minutesStartFrom || Number(interval);
@@ -98,7 +99,7 @@ export const handler = async (event: eventType) => {
     fromTime,
     now
   );
-  console.log("INFO:", JSON.stringify(allEvents));
+  console.log('INFO:', JSON.stringify(allEvents));
   // 通知対象をselect
   const notifyEvents = allEvents.filter((event) => {
     return heatlhApi.isNotifyTargetEvent(event);
@@ -139,7 +140,7 @@ export const handler = async (event: eventType) => {
           generateSlackMessage(event),
           slackWebhookPath
         );
-        console.log("res:", res);
+        console.log('res:', res);
       } catch (e) {
         console.log(`error:${e}`);
       }

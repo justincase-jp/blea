@@ -1,12 +1,12 @@
-import * as lodash from "lodash";
+import * as lodash from 'lodash';
 import {
   HealthClient,
   DescribeEventsForOrganizationCommand,
   DescribeAffectedAccountsForOrganizationCommand,
   OrganizationEvent,
-} from "@aws-sdk/client-health";
+} from '@aws-sdk/client-health';
 
-import { notifyEventTypeCodes, notifyRegionType } from "./consts";
+import { notifyRegionType } from './consts';
 
 type OrganizationEventWithAccountId = {
   accountId?: string;
@@ -14,8 +14,10 @@ type OrganizationEventWithAccountId = {
 
 export class HealthAPI {
   private readonly client: HealthClient;
-  constructor() {
+  private readonly notifyEventTypeCodes;
+  constructor(notifyEventTypeCodes) {
     this.client = new HealthClient({});
+    this.notifyEventTypeCodes = notifyEventTypeCodes;
   }
 
   // 期間中の全イベントを取得
@@ -27,19 +29,19 @@ export class HealthAPI {
       maxResults: 100,
     });
 
-    let next = "init";
+    let next = 'init';
     const events = [];
     while (next) {
       const res = await this.client.send(command);
       command.input.nextToken = res.nextToken;
-      next = res.nextToken || "";
+      next = res.nextToken || '';
       events.push(...(res.events || []));
     }
     return events;
   };
 
   isNotifyTargetEvent = (event: OrganizationEvent) => {
-    if (event.region || "" in notifyEventTypeCodes) {
+    if (event.region || '' in this.notifyEventTypeCodes) {
       return (
         this.isTargetEventTypeCodesSpecificRegion(
           event,
@@ -51,8 +53,8 @@ export class HealthAPI {
   };
 
   private isTargetStatusCode = (event: OrganizationEvent) => {
-    const notifyStatusCode = ["open", "upcoming", "closed"];
-    const eventStatusCode = event.statusCode || "";
+    const notifyStatusCode = ['open', 'upcoming', 'closed'];
+    const eventStatusCode = event.statusCode || '';
     return notifyStatusCode.includes(eventStatusCode);
   };
 
@@ -60,16 +62,16 @@ export class HealthAPI {
     event: OrganizationEvent,
     region: notifyRegionType
   ) => {
-    const eventTypeCode = event.eventTypeCode || "";
-    return notifyEventTypeCodes[region]
-      ? notifyEventTypeCodes[region].includes(eventTypeCode)
+    const eventTypeCode = event.eventTypeCode || '';
+    return this.notifyEventTypeCodes[region]
+      ? this.notifyEventTypeCodes[region].includes(eventTypeCode)
       : false;
   };
 
   // 指定のイベントが特定アカウントに紐づくかどうかを判別
   isEventScopeCodeAccoutSpecific = (event: OrganizationEvent) => {
-    const eventScopeCode = event.eventScopeCode || "";
-    return eventScopeCode === "ACCOUNT_SPECIFIC";
+    const eventScopeCode = event.eventScopeCode || '';
+    return eventScopeCode === 'ACCOUNT_SPECIFIC';
   };
 
   // 指定のイベントに紐づくAccounIdを取得
@@ -80,12 +82,12 @@ export class HealthAPI {
       eventArn: event.arn,
     });
 
-    let next = "init";
+    let next = 'init';
     let accountIds: string[] = [];
     while (next) {
       const res = await this.client.send(command);
       command.input.nextToken = res.nextToken;
-      next = res.nextToken || "";
+      next = res.nextToken || '';
       accountIds = accountIds.concat(res.affectedAccounts || []);
     }
     return accountIds;
@@ -98,7 +100,7 @@ export class HealthAPI {
   ) => {
     let events: OrganizationEventWithAccountId[] = [];
     accountIds.map((accountId) => {
-      event["accountId"] = accountId;
+      event['accountId'] = accountId;
       events.push(lodash.cloneDeep(event));
     });
 

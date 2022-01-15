@@ -306,8 +306,19 @@ const orgHealthProps: OrgHealthProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| [`notifyEventTypeCodes`](#bleaorghealthpropspropertynotifyeventtypecodes)<span title="Required">*</span> | `any` | *No description.* |
 | [`orgHealthMinutesInterval`](#bleaorghealthpropspropertyorghealthminutesinterval)<span title="Required">*</span> | `string` | *No description.* |
 | [`orgHealthSlackWebHookPath`](#bleaorghealthpropspropertyorghealthslackwebhookpath)<span title="Required">*</span> | `string` | *No description.* |
+
+---
+
+##### `notifyEventTypeCodes`<sup>Required</sup> <a name="blea.OrgHealthProps.property.notifyEventTypeCodes" id="bleaorghealthpropspropertynotifyeventtypecodes"></a>
+
+```typescript
+public readonly notifyEventTypeCodes: any;
+```
+
+- *Type:* `any`
 
 ---
 
