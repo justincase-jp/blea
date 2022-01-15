@@ -268,7 +268,7 @@ const orgSlackProps: OrgSlackProps = { ... }
 | --- | --- | --- |
 | [`channelId`](#bleaorgslackpropspropertychannelid)<span title="Required">*</span> | `string` | *No description.* |
 | [`slackChannelConfigurationName`](#bleaorgslackpropspropertyslackchannelconfigurationname)<span title="Required">*</span> | `string` | *No description.* |
-| [`snsTopic`](#bleaorgslackpropspropertysnstopic)<span title="Required">*</span> | [`aws-cdk-lib.aws_sns.Topic`](#aws-cdk-lib.aws_sns.Topic) | *No description.* |
+| [`snsTopic`](#bleaorgslackpropspropertysnstopic)<span title="Required">*</span> | [`aws-cdk-lib.aws_sns.Topic`](#aws-cdk-lib.aws_sns.Topic)[] | *No description.* |
 | [`workspaceId`](#bleaorgslackpropspropertyworkspaceid)<span title="Required">*</span> | `string` | *No description.* |
 
 ---
@@ -296,10 +296,10 @@ public readonly slackChannelConfigurationName: string;
 ##### `snsTopic`<sup>Required</sup> <a name="blea.OrgSlackProps.property.snsTopic" id="bleaorgslackpropspropertysnstopic"></a>
 
 ```typescript
-public readonly snsTopic: Topic;
+public readonly snsTopic: Topic[];
 ```
 
-- *Type:* [`aws-cdk-lib.aws_sns.Topic`](#aws-cdk-lib.aws_sns.Topic)
+- *Type:* [`aws-cdk-lib.aws_sns.Topic`](#aws-cdk-lib.aws_sns.Topic)[]
 
 ---
 
