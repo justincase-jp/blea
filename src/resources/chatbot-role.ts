@@ -14,6 +14,6 @@ export const chatbotRole = (scope: Construct, id: string): iam.Role => {
       iam.ManagedPolicy.fromAwsManagedPolicyName('CloudWatchReadOnlyAccess'),
     ],
   });
-  new iam.Policy(scope, `${id}-policy`, { roles: [role] });
+  new iam.Policy(scope, 'policy', { roles: [role] });
   return role;
 };
