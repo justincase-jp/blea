@@ -5,7 +5,6 @@ import {
   Duration,
 } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-
 import { chatbotRole } from './resources/chatbot-role';
 
 export interface OrgSlackProps {
@@ -21,7 +20,7 @@ export class OrgSlackStack extends Construct {
     const { snsTopic, workspaceId, channelId, slackChannelConfigurationName } =
       props;
 
-    const role = chatbotRole(this, 'chatbotRole');
+    const role = chatbotRole(this);
     const slackChannelId = channelId;
 
     new chatbot.SlackChannelConfiguration(this, 'chatbot', {
