@@ -7,7 +7,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   name: 'blea',
   repositoryUrl: 'ssh://git@github.com/justincase-jp/blea',
 
-  // deps: [] /* Runtime dependencies of this module. */,
+  deps: ['cdk-constants'] /* Runtime dependencies of this module. */,
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
   devDeps: [
     '@types/jest',
