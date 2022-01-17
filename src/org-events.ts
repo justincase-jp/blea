@@ -7,6 +7,7 @@ import {
   RemovalPolicy,
   Duration,
 } from 'aws-cdk-lib';
+import { ServicePrincipals } from 'cdk-constants';
 import { Construct } from 'constructs';
 
 export interface EventSnsProps {
@@ -23,9 +24,9 @@ export class OrgEventStack extends Construct {
     const { region, accountId, kmsAliasName } = props;
 
     const SecurityhubNotifyPattern = {
-      'source': ['aws.securityhub'],
+      source: ['aws.securityhub'],
       'detail-type': ['Security Hub Findings - Imported'],
-      'detail': {
+      detail: {
         findings: {
           Compliance: {
             Status: ['NOT_AVAILABLE', 'FAILED', 'WARNING'],
@@ -59,8 +60,8 @@ export class OrgEventStack extends Construct {
     });
     const principals = [];
     const eventsServicePrincipal = new iam.ServicePrincipal(
-      'events.amazonaws.com',
-      {},
+      ServicePrincipals.EVENTS,
+      {}
     );
     principals.push(eventsServicePrincipal);
 
