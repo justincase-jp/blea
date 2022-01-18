@@ -26,7 +26,6 @@ const common_exclude = [
   'cdk.context.json',
   'yarn-error.log',
   'coverage',
-  'yarn.lock',
 ];
 project.gitignore.exclude(...common_exclude);
 

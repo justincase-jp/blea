@@ -53,5 +53,4 @@ cdk.out
 cdk.context.json
 yarn-error.log
 coverage
-yarn.lock
 !/.github/workflows/upgrade-main.yml
