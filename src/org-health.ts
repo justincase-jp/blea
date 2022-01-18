@@ -38,14 +38,8 @@ export class OrgHealthStack extends Construct {
 
     healthLambda.role?.addManagedPolicy(
       iam.ManagedPolicy.fromAwsManagedPolicyName(
-        ManagedPolicies.AWS_LAMBDA_EXECUTE
-      )
-    );
-
-    healthLambda.role?.addManagedPolicy(
-      iam.ManagedPolicy.fromAwsManagedPolicyName(
-        ManagedPolicies.AWS_HEALTH_FULL_ACCESS
-      )
+        ManagedPolicies.AWS_HEALTH_FULL_ACCESS,
+      ),
     );
 
     new events.Rule(this, 'events', {
