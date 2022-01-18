@@ -24,7 +24,7 @@ export class OrgHealthStack extends Construct {
       notifyEventTypeCodes,
     } = props;
 
-    const healthLambda = new lambdaNodejs.NodejsFunction(this, 'orgHealth', {
+    const healthLambda = new lambdaNodejs.NodejsFunction(this, 'lambda', {
       runtime: lambda.Runtime.NODEJS_14_X,
       entry: 'lambda/health/handler.ts',
       handler: 'handler',
