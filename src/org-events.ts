@@ -7,6 +7,7 @@ import {
   RemovalPolicy,
   Duration,
 } from 'aws-cdk-lib';
+import { ServicePrincipals } from 'cdk-constants';
 import { Construct } from 'constructs';
 
 export interface EventSnsProps {
@@ -59,7 +60,7 @@ export class OrgEventStack extends Construct {
     });
     const principals = [];
     const eventsServicePrincipal = new iam.ServicePrincipal(
-      'events.amazonaws.com',
+      ServicePrincipals.EVENTS,
       {},
     );
     principals.push(eventsServicePrincipal);
