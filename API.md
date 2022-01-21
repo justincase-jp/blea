@@ -99,6 +99,46 @@ public readonly topic: Topic;
 ---
 
 
+### OrgSlackStack <a name="blea.OrgSlackStack" id="bleaorgslackstack"></a>
+
+#### Initializers <a name="blea.OrgSlackStack.Initializer" id="bleaorgslackstackinitializer"></a>
+
+```typescript
+import { OrgSlackStack } from 'blea'
+
+new OrgSlackStack(scope: Construct, id: string, props: OrgSlackProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| [`scope`](#bleaorgslackstackparameterscope)<span title="Required">*</span> | [`constructs.Construct`](#constructs.Construct) | *No description.* |
+| [`id`](#bleaorgslackstackparameterid)<span title="Required">*</span> | `string` | *No description.* |
+| [`props`](#bleaorgslackstackparameterprops)<span title="Required">*</span> | [`blea.OrgSlackProps`](#blea.OrgSlackProps) | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="blea.OrgSlackStack.parameter.scope" id="bleaorgslackstackparameterscope"></a>
+
+- *Type:* [`constructs.Construct`](#constructs.Construct)
+
+---
+
+##### `id`<sup>Required</sup> <a name="blea.OrgSlackStack.parameter.id" id="bleaorgslackstackparameterid"></a>
+
+- *Type:* `string`
+
+---
+
+##### `props`<sup>Required</sup> <a name="blea.OrgSlackStack.parameter.props" id="bleaorgslackstackparameterprops"></a>
+
+- *Type:* [`blea.OrgSlackProps`](#blea.OrgSlackProps)
+
+---
+
+
+
+
+
 ## Structs <a name="Structs" id="structs"></a>
 
 ### EventSnsProps <a name="blea.EventSnsProps" id="bleaeventsnsprops"></a>
@@ -209,6 +249,67 @@ public readonly configRulesOnlyUsEast1: any[];
 ```
 
 - *Type:* `any`[]
+
+---
+
+### OrgSlackProps <a name="blea.OrgSlackProps" id="bleaorgslackprops"></a>
+
+#### Initializer <a name="[object Object].Initializer" id="object-objectinitializer"></a>
+
+```typescript
+import { OrgSlackProps } from 'blea'
+
+const orgSlackProps: OrgSlackProps = { ... }
+```
+
+#### Properties <a name="Properties" id="properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| [`channelId`](#bleaorgslackpropspropertychannelid)<span title="Required">*</span> | `string` | *No description.* |
+| [`slackChannelConfigurationName`](#bleaorgslackpropspropertyslackchannelconfigurationname)<span title="Required">*</span> | `string` | *No description.* |
+| [`snsTopic`](#bleaorgslackpropspropertysnstopic)<span title="Required">*</span> | [`aws-cdk-lib.aws_sns.Topic`](#aws-cdk-lib.aws_sns.Topic)[] | *No description.* |
+| [`workspaceId`](#bleaorgslackpropspropertyworkspaceid)<span title="Required">*</span> | `string` | *No description.* |
+
+---
+
+##### `channelId`<sup>Required</sup> <a name="blea.OrgSlackProps.property.channelId" id="bleaorgslackpropspropertychannelid"></a>
+
+```typescript
+public readonly channelId: string;
+```
+
+- *Type:* `string`
+
+---
+
+##### `slackChannelConfigurationName`<sup>Required</sup> <a name="blea.OrgSlackProps.property.slackChannelConfigurationName" id="bleaorgslackpropspropertyslackchannelconfigurationname"></a>
+
+```typescript
+public readonly slackChannelConfigurationName: string;
+```
+
+- *Type:* `string`
+
+---
+
+##### `snsTopic`<sup>Required</sup> <a name="blea.OrgSlackProps.property.snsTopic" id="bleaorgslackpropspropertysnstopic"></a>
+
+```typescript
+public readonly snsTopic: Topic[];
+```
+
+- *Type:* [`aws-cdk-lib.aws_sns.Topic`](#aws-cdk-lib.aws_sns.Topic)[]
+
+---
+
+##### `workspaceId`<sup>Required</sup> <a name="blea.OrgSlackProps.property.workspaceId" id="bleaorgslackpropspropertyworkspaceid"></a>
+
+```typescript
+public readonly workspaceId: string;
+```
+
+- *Type:* `string`
 
 ---
 
