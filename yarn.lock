@@ -1546,10 +1546,10 @@
   dependencies:
     "@types/istanbul-lib-report" "*"
 
-"@types/jest@*":
-  version "27.0.3"
-  resolved "https://registry.npmjs.org/@types/jest/-/jest-27.0.3.tgz"
-  integrity sha512-cmmwv9t7gBYt7hNKH5Spu7Kuu/DotGa+Ff+JGRKZ4db5eh8PnKS4LuebJ3YLUoyOyIHraTGyULn23YtEAm0VSg==
+"@types/jest@^27.4.0":
+  version "27.4.0"
+  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-27.4.0.tgz#037ab8b872067cae842a320841693080f9cb84ed"
+  integrity sha512-gHl8XuC1RZ8H2j5sHv/JqsaxXkDDM9iDOgu0Wp8sjs4u/snb2PVehyWXJPr+ORA0RPpgw231mnutWI1+0hgjIQ==
   dependencies:
     jest-diff "^27.0.0"
     pretty-format "^27.0.0"
@@ -4658,9 +4658,9 @@ jsii-diff@^1.52.1:
     yargs "^16.2.0"
 
 jsii-docgen@^4.2.40:
-  version "4.2.43"
-  resolved "https://registry.yarnpkg.com/jsii-docgen/-/jsii-docgen-4.2.43.tgz#674c1a495f205e29dc711f7407a55d6dc0484670"
-  integrity sha512-fEyiznLD2Vzhirj2MRTHSYmO8PU0pk85nKXYgsvNkBVkfkCa+vB1boAviStelMA9/V/7l5D678U29xXTY+Cd4w==
+  version "4.2.44"
+  resolved "https://registry.yarnpkg.com/jsii-docgen/-/jsii-docgen-4.2.44.tgz#388729e07efa3e947f5a511e556dee1cb51827db"
+  integrity sha512-JxMLnCGsWUVSOYDXaO4qXKGa1xOzXvk0UvXh296IBCNO+xmjWrb9si0NFERKc5DteUYxqpKicm6VxUiAatpyug==
   dependencies:
     "@jsii/spec" "^1.52.1"
     case "^1.6.3"
