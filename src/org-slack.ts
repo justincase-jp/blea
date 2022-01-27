@@ -17,6 +17,7 @@ export interface OrgSlackProps {
 export class OrgSlackStack extends Construct {
   constructor(scope: Construct, id: string, props: OrgSlackProps) {
     super(scope, id);
+
     const { snsTopic, workspaceId, channelId, slackChannelConfigurationName } =
       props;
 
