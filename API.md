@@ -99,7 +99,6 @@ public readonly topic: Topic;
 ---
 
 
-
 ### OrgHealthStack <a name="blea.OrgHealthStack" id="bleaorghealthstack"></a>
 
 #### Initializers <a name="blea.OrgHealthStack.Initializer" id="bleaorghealthstackinitializer"></a>
@@ -292,7 +291,6 @@ public readonly configRulesOnlyUsEast1: any[];
 - *Type:* `any`[]
 
 ---
-
 
 ### OrgHealthProps <a name="blea.OrgHealthProps" id="bleaorghealthprops"></a>
 
