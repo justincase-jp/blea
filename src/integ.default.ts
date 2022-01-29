@@ -38,7 +38,7 @@ new OrgHealthStack(stack, 'OrgHealthStack', {
   orgHealthMinutesInterval: '30',
   orgHealthSlackWebHookPath: '/services/xxxxxx/xxxxxx/xxxxxxxxx',
   notifyEventTypeCodes: {
-    global: [
+    'global': [
       'AWS_ABUSE_BOTNET_REPORT',
       'AWS_ABUSE_CC_FRAUD_REPORT',
       'AWS_ABUSE_COPYRIGHT_DMCA_REPORT',
