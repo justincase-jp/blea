@@ -458,6 +458,7 @@ const props: Props = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | [`auditAccountId`](#bleapropspropertyauditaccountid)<span title="Required">*</span> | `string` | *No description.* |
+| [`configurationAggregatorName`](#bleapropspropertyconfigurationaggregatorname)<span title="Required">*</span> | `string` | *No description.* |
 | [`controlTowerHomeRegion`](#bleapropspropertycontroltowerhomeregion)<span title="Required">*</span> | `string` | *No description.* |
 | [`snsTopicArn`](#bleapropspropertysnstopicarn)<span title="Required">*</span> | `string` | *No description.* |
 
@@ -467,6 +468,16 @@ const props: Props = { ... }
 
 ```typescript
 public readonly auditAccountId: string;
+```
+
+- *Type:* `string`
+
+---
+
+##### `configurationAggregatorName`<sup>Required</sup> <a name="blea.Props.property.configurationAggregatorName" id="bleapropspropertyconfigurationaggregatorname"></a>
+
+```typescript
+public readonly configurationAggregatorName: string;
 ```
 
 - *Type:* `string`

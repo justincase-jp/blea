@@ -9,6 +9,7 @@ import {
 const app = new App();
 const stack = new Stack(app, 'MyStack');
 
+// audit account
 const orgEventStack = new OrgEventStack(stack, 'OrgEventStack', {
   region: 'ap-northeast-1',
   accountId: '123456789012',
@@ -22,10 +23,14 @@ new OrgSlackStack(stack, 'OrgSlackStack', {
   slackChannelConfigurationName: 'xxxxxxx',
 });
 
+// audit account every region
 new OrgConfigToSecurityhub(stack, 'OrgConfigToSecurityhub', {
   auditAccountId: '123456789012',
-  snsTopicArn: 'arn:aws:sns:ap-northeast-1:123456789012:xxxxxxx',
+  snsTopicArn:
+    'arn:aws:sns:ap-northeast-1:123456789012:aws-controltower-AggregateSecurityNotifications',
   controlTowerHomeRegion: 'ap-northeast-1',
+  configurationAggregatorName:
+    'aws-controltower-GuardrailsComplianceAggregator',
 });
 
 // rootAccount
@@ -33,7 +38,7 @@ new OrgHealthStack(stack, 'OrgHealthStack', {
   orgHealthMinutesInterval: '30',
   orgHealthSlackWebHookPath: '/services/xxxxxx/xxxxxx/xxxxxxxxx',
   notifyEventTypeCodes: {
-    'global': [
+    global: [
       'AWS_ABUSE_BOTNET_REPORT',
       'AWS_ABUSE_CC_FRAUD_REPORT',
       'AWS_ABUSE_COPYRIGHT_DMCA_REPORT',
