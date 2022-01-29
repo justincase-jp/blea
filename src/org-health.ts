@@ -6,6 +6,7 @@ import {
   aws_events_targets as eventsTargets,
   Duration,
 } from 'aws-cdk-lib';
+import { ManagedPolicies } from 'cdk-constants';
 import { Construct } from 'constructs';
 
 export interface OrgHealthProps {
@@ -23,16 +24,7 @@ export class OrgHealthStack extends Construct {
       notifyEventTypeCodes,
     } = props;
 
-    const roleLambda = new iam.Role(this, 'roleLambda', {
-      assumedBy: new iam.ServicePrincipal('lambda.amazonaws.com'),
-    });
-    roleLambda.addManagedPolicy(
-      iam.ManagedPolicy.fromAwsManagedPolicyName('AWSLambdaExecute'),
-    );
-    roleLambda.addManagedPolicy(
-      iam.ManagedPolicy.fromAwsManagedPolicyName('AWSHealthFullAccess'),
-    );
-    const healthLambda = new lambdaNodejs.NodejsFunction(this, 'orgHealth', {
+    const healthLambda = new lambdaNodejs.NodejsFunction(this, 'lambda', {
       runtime: lambda.Runtime.NODEJS_14_X,
       entry: 'lambda/health/handler.ts',
       handler: 'handler',
@@ -41,9 +33,15 @@ export class OrgHealthStack extends Construct {
         interval: orgHealthMinutesInterval,
         notifyEventTypeCodes: JSON.stringify(notifyEventTypeCodes),
       },
-      role: roleLambda,
       timeout: Duration.seconds(300),
     });
+
+    healthLambda.role?.addManagedPolicy(
+      iam.ManagedPolicy.fromAwsManagedPolicyName(
+        ManagedPolicies.AWS_HEALTH_FULL_ACCESS,
+      ),
+    );
+
     new events.Rule(this, 'events', {
       schedule: events.Schedule.cron({
         minute: `0/${orgHealthMinutesInterval}`,

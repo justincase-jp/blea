@@ -16,7 +16,7 @@ const orgEventStack = new OrgEventStack(stack, 'OrgEventStack', {
 });
 
 new OrgSlackStack(stack, 'OrgSlackStack', {
-  snsTopic: orgEventStack.topic,
+  snsTopic: [orgEventStack.topic],
   workspaceId: 'xxxxxxx',
   channelId: 'xxxxxxx',
   slackChannelConfigurationName: 'xxxxxxx',
