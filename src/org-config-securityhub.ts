@@ -30,7 +30,7 @@ export class OrgConfigToSecurityhub extends Construct {
     const configToShubLambda = new lambda.Function(this, 'lambda', {
       runtime: lambda.Runtime.PYTHON_3_7,
       code: lambda.Code.fromAsset(
-        path.join(__dirname, '../lambda/config-securityhub/')
+        path.join(__dirname, '../lambda/config-securityhub/'),
       ),
       handler: 'app.lambda_handler',
       logRetention: logs.RetentionDays.ONE_MONTH,
@@ -44,18 +44,18 @@ export class OrgConfigToSecurityhub extends Construct {
 
     configToShubLambda.role?.addManagedPolicy(
       iam.ManagedPolicy.fromAwsManagedPolicyName(
-        ManagedPolicies.AWS_SECURITY_HUB_FULL_ACCESS
-      )
+        ManagedPolicies.AWS_SECURITY_HUB_FULL_ACCESS,
+      ),
     );
     configToShubLambda.role?.addManagedPolicy(
       iam.ManagedPolicy.fromAwsManagedPolicyName(
-        ManagedPolicies.AWS_CONFIG_USER_ACCESS
-      )
+        ManagedPolicies.AWS_CONFIG_USER_ACCESS,
+      ),
     );
 
     const snsTopic = sns.Topic.fromTopicArn(this, 'snsTopic', snsTopicArn);
     configToShubLambda.addEventSource(
-      new lambda_event_sources.SnsEventSource(snsTopic)
+      new lambda_event_sources.SnsEventSource(snsTopic),
     );
   }
 }
