@@ -132,6 +132,26 @@ new OrgConfigToSecurityhub(stack, 'OrgConfigToSecurityhub', {
 
 # OrgAccountInitProc
 
+# OrgStackSet
+
+# for develop
+
+first step
+
+```
+$ yarn
+```
+
+compile in the background
+
+```
+$ yarn watch
+
+```
+
+## IMPORTANT!
+
+DO NOT EDIT by package.json
 
 
 ## to check specific source
@@ -139,11 +159,13 @@ new OrgConfigToSecurityhub(stack, 'OrgConfigToSecurityhub', {
 once you build your source.
 
 ```
-yarn build
+$ yarn build
 ```
 
-then, execute synth
+then, execute synth, deploy etc...
 
 ```
-cdk synth --app='./lib/integ.default.js'
+$ cdk synth --app='./lib/integ.default.js'
+or
+$ cdk deploy --app='./lib/integ.default.js'
 ```

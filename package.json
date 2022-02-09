@@ -7,6 +7,11 @@
   "scripts": {
     "build": "npx projen build",
     "bump": "npx projen bump",
+    "bundle": "npx projen bundle",
+    "bundle:lambda/disableShub.lambda": "npx projen bundle:lambda/disableShub.lambda",
+    "bundle:lambda/disableShub.lambda:watch": "npx projen bundle:lambda/disableShub.lambda:watch",
+    "bundle:lambda/swrole.lambda": "npx projen bundle:lambda/swrole.lambda",
+    "bundle:lambda/swrole.lambda:watch": "npx projen bundle:lambda/swrole.lambda:watch",
     "clobber": "npx projen clobber",
     "compat": "npx projen compat",
     "compile": "npx projen compile",
@@ -33,6 +38,8 @@
   },
   "devDependencies": {
     "@aws-sdk/client-health": "^3.49.0",
+    "@aws-sdk/client-securityhub": "^3.50.0",
+    "@aws-sdk/client-sts": "^3.50.0",
     "@types/jest": "^27.4.0",
     "@types/lodash": "^4.14.178",
     "@types/node": "^12",

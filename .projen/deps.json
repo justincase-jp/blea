@@ -5,6 +5,14 @@
       "type": "build"
     },
     {
+      "name": "@aws-sdk/client-securityhub",
+      "type": "build"
+    },
+    {
+      "name": "@aws-sdk/client-sts",
+      "type": "build"
+    },
+    {
       "name": "@types/jest",
       "type": "build"
     },
@@ -39,7 +47,6 @@
     },
     {
       "name": "esbuild",
-      "version": "0",
       "type": "build"
     },
     {
