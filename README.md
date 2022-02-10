@@ -24,7 +24,7 @@ This provides eventBridge rule from securityhub to SNS which is encrypted
 ```
 import { OrgEventStack } from 'blea';
 
-const orgEventStack = new OrgEventStack(this, 'OrgEventStack', {
+const orgEvent = new OrgEventStack(this, 'OrgEventStack', {
     region: props?.env?.region || '',
     accountId: props?.env?.account || '',
     kmsAliasName: 'jicOrgTest',
@@ -68,7 +68,68 @@ const orgConfigRules = new OrgConfigRules(this, 'OrgConfigRules', {
 ```
 
 # OrgSlack
+
+### Overview
+
+This provides aws chatbot for slack to notify findings . 
+
+| Item           | Description                   |
+| -------------- | ----------------------------- |
+| Deploy Account | Audit Account                 |
+| Resources      | chatbot |
+
+### Prerequisites 
+before deploying ,you have done configure new client. for more details , see below
+https://docs.aws.amazon.com/dtconsole/latest/userguide/notifications-chatbot.html
+
+### Usage
+it supposes to be used with OrgEvent.
+
+```
+  const slackWorkspaceId = "xxxxx"
+  const slackChannelId   = "xxxxx" 
+
+  const orgSlackStack = new OrgSlackStack(this, 'OrgSlack', {
+      snsTopic: [orgEven.topic],
+      workspaceId: slackWorkspaceId,
+      channelId: slackChannelId,
+      slackChannelConfigurationName: slackChannelConfigurationName,
+    });
+```
+
 # OrgConfigToSecurityhub
+
+### Overview
+
+This provides lambda to import findings to securityhub 
+from all children accounts config compliance .
+
+you have sns topic named 'aws-controltower-AggregateSecurityNotifications' that created by aws controltower .  
+All config compliance informations are sent to that one .
+
+| Item           | Description                   |
+| -------------- | ----------------------------- |
+| Deploy Account | Audit Account                 |
+| Resources      | lambda |
+
+### Prerequisites 
+
+Control tower is enabled in your organizations .
+
+
+### Usage
+
+```
+new OrgConfigToSecurityhub(stack, 'OrgConfigToSecurityhub', {
+  auditAccountId: '123456789012',
+  snsTopicArn:
+    'arn:aws:sns:ap-northeast-1:123456789012:aws-controltower-AggregateSecurityNotifications',
+  controlTowerHomeRegion: 'ap-northeast-1',
+  configurationAggregatorName:
+    'aws-controltower-GuardrailsComplianceAggregator',
+});
+```
+
 # OrgAccountInitProc
 
 
