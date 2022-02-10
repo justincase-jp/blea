@@ -4,28 +4,17 @@ const {
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'justincase-jp',
   authorAddress: '13391129+xhiroga@users.noreply.github.com',
-  cdkVersion: '2.1.0',
+  cdkVersion: '2.12.0',
   defaultReleaseBranch: 'main',
   name: 'blea',
   repositoryUrl: 'ssh://git@github.com/justincase-jp/blea',
   deps: [
     'cdk-constants',
-  ] /* Runtime dependencies of this module. */,
+  ], /* Runtime dependencies of this module. */
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
   devDeps: [
     '@aws-sdk/client-securityhub',
     '@aws-sdk/client-sts',
-    '@aws-sdk/client-health',
-    'lodash',
-    '@types/lodash',
-    'esbuild',
-    '@types/jest',
-    '@types/node',
-    'aws-cdk-lib',
-    'constructs',
-    'jest',
-    'ts-jest',
-    'typescript',
   ],
 });
 const common_exclude = [
