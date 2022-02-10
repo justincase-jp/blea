@@ -44,7 +44,7 @@ This provides OrganizationConfigRule to find child accounts Noncompliant
 ### Prerequisites
 
 Before using , you should set up for root or audit account enable config rule to organizations.
-for more detail , see below  
+for more detail , see below
 https://docs.aws.amazon.com/config/latest/developerguide/config-rule-multi-account-deployment.html
 
 ### Usage
@@ -71,14 +71,14 @@ const orgConfigRules = new OrgConfigRules(this, 'OrgConfigRules', {
 
 ### Overview
 
-This provides aws chatbot for slack to notify findings . 
+This provides aws chatbot for slack to notify findings .
 
 | Item           | Description                   |
 | -------------- | ----------------------------- |
 | Deploy Account | Audit Account                 |
 | Resources      | chatbot |
 
-### Prerequisites 
+### Prerequisites
 before deploying ,you have done configure new client. for more details , see below
 https://docs.aws.amazon.com/dtconsole/latest/userguide/notifications-chatbot.html
 
@@ -87,7 +87,7 @@ it supposes to be used with OrgEvent.
 
 ```
   const slackWorkspaceId = "xxxxx"
-  const slackChannelId   = "xxxxx" 
+  const slackChannelId   = "xxxxx"
 
   const orgSlackStack = new OrgSlackStack(this, 'OrgSlack', {
       snsTopic: [orgEven.topic],
@@ -101,10 +101,10 @@ it supposes to be used with OrgEvent.
 
 ### Overview
 
-This provides lambda to import findings to securityhub 
+This provides lambda to import findings to securityhub
 from all children accounts config compliance .
 
-you have sns topic named 'aws-controltower-AggregateSecurityNotifications' that created by aws controltower .  
+you have sns topic named 'aws-controltower-AggregateSecurityNotifications' that created by aws controltower .
 All config compliance informations are sent to that one .
 
 | Item           | Description                   |
@@ -112,7 +112,7 @@ All config compliance informations are sent to that one .
 | Deploy Account | Audit Account                 |
 | Resources      | lambda |
 
-### Prerequisites 
+### Prerequisites
 
 Control tower is enabled in your organizations .
 
@@ -132,9 +132,13 @@ new OrgConfigToSecurityhub(stack, 'OrgConfigToSecurityhub', {
 
 # OrgAccountInitProc
 
+TODO:
+
 # OrgStackSet
 
-# for develop
+TODO:
+
+# for contributor
 
 first step
 
