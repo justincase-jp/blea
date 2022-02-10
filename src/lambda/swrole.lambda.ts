@@ -1,7 +1,6 @@
 import {
   STSClient,
   AssumeRoleCommand,
-  // AssumeRoleCommandOutput,
 } from '@aws-sdk/client-sts';
 
 const stsClient = new STSClient({ region: process.env.AWS_REGION! });
@@ -19,7 +18,6 @@ export async function handler(event: EventProps) {
     DurationSeconds: 900,
   };
   const command = new AssumeRoleCommand(params);
-  // let res: AssumeRoleCommandOutput;
   const res = await stsClient.send(command);
 
   return res.Credentials;
