@@ -169,7 +169,7 @@ const disableArnsCISNotCtHome = [
   '1.2',
 ];
 
-const auditAccountId = '521693437237';
+const auditAccountId = '123412341234';
 const auditRegion = 'ap-northeast-1';
 
 const app = new App();
@@ -179,7 +179,7 @@ const app = new App();
 const roleName = 'swrole-from-blea';
 
 // new OrgRoleStackSet(MainStack, 'OrgRoleStackSet', {
-//   auditAccountID: '521693437237',
+//   auditAccountID: auditAccountId,
 //   roleName: roleName,
 //   stackInstancesGroup: {
 //     regions: ['ap-northeast-1'],
