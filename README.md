@@ -169,7 +169,7 @@ $ yarn build
 then, execute synth, deploy etc...
 
 ```
-$ cdk synth --app='./lib/integ.default.js'
+$ cdk synth --app='./lib/integ.xxxx.default.js'
 or
-$ cdk deploy --app='./lib/integ.default.js'
+$ cdk deploy --app='./lib/integ.xxxx.default.js'
 ```

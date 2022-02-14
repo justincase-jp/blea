@@ -1,10 +1,10 @@
 import { App, Stack } from 'aws-cdk-lib';
 import {
-  // OrgRoleStackSet,
   OrgAccountInit,
+  OrgEventStack,
+  OrgSlackStack,
 } from './index';
 
-const controlTowerHomeRegion = 'ap-northeast-1';
 const disableArnsBasicAll = [
   'ACM.1',
   'APIGateway.1',
@@ -169,26 +169,12 @@ const disableArnsCISNotCtHome = [
   '1.2',
 ];
 
+const controlTowerHomeRegion = 'ap-northeast-1';
 const auditAccountId = '123412341234';
 const auditRegion = 'ap-northeast-1';
-
-const app = new App();
-
-// const MainStack = new Stack(app, 'MainStack');
-
 const roleName = 'swrole-from-blea';
 
-// new OrgRoleStackSet(MainStack, 'OrgRoleStackSet', {
-//   auditAccountID: auditAccountId,
-//   roleName: roleName,
-//   stackInstancesGroup: {
-//     regions: ['ap-northeast-1'],
-//     deploymentTargets: {
-//       organizationalUnitIds: ['r-r0d4'],
-//     },
-//   },
-// });
-
+const app = new App();
 
 const AuditStack = new Stack(app, 'AuditStack',
   {
@@ -198,6 +184,19 @@ const AuditStack = new Stack(app, 'AuditStack',
     },
   },
 );
+
+const orgEventStack = new OrgEventStack(AuditStack, 'OrgEventStack', {
+  region: 'ap-northeast-1',
+  accountId: '123456789012',
+  kmsAliasName: 'jicOrgTest',
+});
+
+new OrgSlackStack(AuditStack, 'OrgSlackStack', {
+  snsTopic: [orgEventStack.topic],
+  workspaceId: 'xxxxxxx',
+  channelId: 'xxxxxxx',
+  slackChannelConfigurationName: 'xxxxxxx',
+});
 
 new OrgAccountInit(AuditStack, 'OrgAccountInit', {
   roleName: roleName,
