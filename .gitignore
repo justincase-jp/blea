@@ -50,8 +50,8 @@ junit.xml
 tsconfig.json
 !/API.md
 /assets/
-!/src/lambda/disableShub-function.ts
-!/src/lambda/swrole-function.ts
+!/src/lambda/disable-securityhub-function.ts
+!/src/lambda/sw-role-function.ts
 cdk.out
 cdk.context.json
 yarn-error.log

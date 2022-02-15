@@ -4,22 +4,22 @@ import * as lambda from 'aws-cdk-lib/aws-lambda';
 import { Construct } from 'constructs';
 
 /**
- * Props for SwroleFunction
+ * Props for SwRoleFunction
  */
-export interface SwroleFunctionProps extends lambda.FunctionOptions {
+export interface SwRoleFunctionProps extends lambda.FunctionOptions {
 }
 
 /**
- * An AWS Lambda function which executes src/lambda/swrole.
+ * An AWS Lambda function which executes src/lambda/sw-role.
  */
-export class SwroleFunction extends lambda.Function {
-  constructor(scope: Construct, id: string, props?: SwroleFunctionProps) {
+export class SwRoleFunction extends lambda.Function {
+  constructor(scope: Construct, id: string, props?: SwRoleFunctionProps) {
     super(scope, id, {
-      description: 'src/lambda/swrole.lambda.ts',
+      description: 'src/lambda/sw-role.lambda.ts',
       ...props,
       runtime: lambda.Runtime.NODEJS_14_X,
       handler: 'index.handler',
-      code: lambda.Code.fromAsset(path.join(__dirname, '../../assets/lambda/swrole.lambda')),
+      code: lambda.Code.fromAsset(path.join(__dirname, '../../assets/lambda/sw-role.lambda')),
     });
     this.addEnvironment('AWS_NODEJS_CONNECTION_REUSE_ENABLED', '1', { removeInEdge: true });
   }

@@ -45,46 +45,46 @@
       "description": "Prepare assets",
       "steps": [
         {
-          "spawn": "bundle:lambda/disableShub.lambda"
+          "spawn": "bundle:lambda/disable-securityhub.lambda"
         },
         {
-          "spawn": "bundle:lambda/swrole.lambda"
+          "spawn": "bundle:lambda/sw-role.lambda"
         }
       ]
     },
-    "bundle:lambda/disableShub.lambda": {
-      "name": "bundle:lambda/disableShub.lambda",
-      "description": "Create a JavaScript bundle from src/lambda/disableShub.lambda.ts",
+    "bundle:lambda/disable-securityhub.lambda": {
+      "name": "bundle:lambda/disable-securityhub.lambda",
+      "description": "Create a JavaScript bundle from src/lambda/disable-securityhub.lambda.ts",
       "steps": [
         {
-          "exec": "esbuild --bundle src/lambda/disableShub.lambda.ts --target=\"node14\" --platform=\"node\" --outfile=\"assets/lambda/disableShub.lambda/index.js\" --external:aws-sdk"
+          "exec": "esbuild --bundle src/lambda/disable-securityhub.lambda.ts --target=\"node14\" --platform=\"node\" --outfile=\"assets/lambda/disable-securityhub.lambda/index.js\" --external:aws-sdk"
         }
       ]
     },
-    "bundle:lambda/disableShub.lambda:watch": {
-      "name": "bundle:lambda/disableShub.lambda:watch",
-      "description": "Continuously update the JavaScript bundle from src/lambda/disableShub.lambda.ts",
+    "bundle:lambda/disable-securityhub.lambda:watch": {
+      "name": "bundle:lambda/disable-securityhub.lambda:watch",
+      "description": "Continuously update the JavaScript bundle from src/lambda/disable-securityhub.lambda.ts",
       "steps": [
         {
-          "exec": "esbuild --bundle src/lambda/disableShub.lambda.ts --target=\"node14\" --platform=\"node\" --outfile=\"assets/lambda/disableShub.lambda/index.js\" --external:aws-sdk --watch"
+          "exec": "esbuild --bundle src/lambda/disable-securityhub.lambda.ts --target=\"node14\" --platform=\"node\" --outfile=\"assets/lambda/disable-securityhub.lambda/index.js\" --external:aws-sdk --watch"
         }
       ]
     },
-    "bundle:lambda/swrole.lambda": {
-      "name": "bundle:lambda/swrole.lambda",
-      "description": "Create a JavaScript bundle from src/lambda/swrole.lambda.ts",
+    "bundle:lambda/sw-role.lambda": {
+      "name": "bundle:lambda/sw-role.lambda",
+      "description": "Create a JavaScript bundle from src/lambda/sw-role.lambda.ts",
       "steps": [
         {
-          "exec": "esbuild --bundle src/lambda/swrole.lambda.ts --target=\"node14\" --platform=\"node\" --outfile=\"assets/lambda/swrole.lambda/index.js\" --external:aws-sdk"
+          "exec": "esbuild --bundle src/lambda/sw-role.lambda.ts --target=\"node14\" --platform=\"node\" --outfile=\"assets/lambda/sw-role.lambda/index.js\" --external:aws-sdk"
         }
       ]
     },
-    "bundle:lambda/swrole.lambda:watch": {
-      "name": "bundle:lambda/swrole.lambda:watch",
-      "description": "Continuously update the JavaScript bundle from src/lambda/swrole.lambda.ts",
+    "bundle:lambda/sw-role.lambda:watch": {
+      "name": "bundle:lambda/sw-role.lambda:watch",
+      "description": "Continuously update the JavaScript bundle from src/lambda/sw-role.lambda.ts",
       "steps": [
         {
-          "exec": "esbuild --bundle src/lambda/swrole.lambda.ts --target=\"node14\" --platform=\"node\" --outfile=\"assets/lambda/swrole.lambda/index.js\" --external:aws-sdk --watch"
+          "exec": "esbuild --bundle src/lambda/sw-role.lambda.ts --target=\"node14\" --platform=\"node\" --outfile=\"assets/lambda/sw-role.lambda/index.js\" --external:aws-sdk --watch"
         }
       ]
     },

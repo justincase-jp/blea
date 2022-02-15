@@ -11,8 +11,8 @@ import {
 
 import { Construct } from 'constructs';
 
-import { DisableShubFunction } from './lambda/disableShub-function';
-import { SwroleFunction } from './lambda/swrole-function';
+import { DisableSecurityhubFunction } from './lambda/disable-securityhub-function';
+import { SwRoleFunction } from './lambda/sw-role-function';
 
 export interface OrgAccountInitProps {
   readonly roleName: string;
@@ -72,7 +72,7 @@ export class OrgAccountInit extends Construct {
       ],
     });
 
-    const swroleFunc = new SwroleFunction(this, 'swroleFunc', {
+    const swRoleFunc = new SwRoleFunction(this, 'SwRoleFunction', {
       environment: {
         envPrefix: 'OrgAccountInitSfnStack',
         roleName: roleName,
@@ -81,7 +81,7 @@ export class OrgAccountInit extends Construct {
       timeout: Duration.seconds(30),
     });
 
-    const disableShubFunc = new DisableShubFunction(this, 'disableShubFunc', {
+    const disableSecurityhubFunc = new DisableSecurityhubFunction(this, 'DisableSecurityhubFunction', {
       environment: {
         disableArnsBasicAll: disableArnsBasicAll.join(','),
         disableArnsCISAll: disableArnsCISAll.join(','),
@@ -93,17 +93,17 @@ export class OrgAccountInit extends Construct {
       timeout: Duration.minutes(10),
     });
 
-    const swroleJob = new tasks.LambdaInvoke(this, 'swroleJob', {
-      lambdaFunction: swroleFunc,
+    const swRoleJob = new tasks.LambdaInvoke(this, 'SwRoleJob', {
+      lambdaFunction: swRoleFunc,
       inputPath: '$',
-      resultPath: '$.swroleResultPath',
+      resultPath: '$.swRoleResultPath',
     });
-    const disableShubJob = new tasks.LambdaInvoke(this, 'disableShubJob', {
-      lambdaFunction: disableShubFunc,
+    const DisableSecurityhubJob = new tasks.LambdaInvoke(this, 'DisableSecurityhubJob', {
+      lambdaFunction: disableSecurityhubFunc,
       inputPath: '$',
-      resultPath: '$.disableShubResultPath',
+      resultPath: '$.DisableSecurityhubResultPath',
     });
-    const definition = swroleJob.next(disableShubJob);
+    const definition = swRoleJob.next(DisableSecurityhubJob);
 
     new sfn.StateMachine(this, 'StateMachine', {
       definition: definition,
