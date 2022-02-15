@@ -16,7 +16,7 @@ export interface EventSnsProps {
   readonly kmsAliasName: string;
 }
 
-export class OrgEventStack extends Construct {
+export class OrgEvent extends Construct {
   public readonly topic: sns.Topic;
   constructor(scope: Construct, id: string, props: EventSnsProps) {
     super(scope, id);
@@ -24,9 +24,9 @@ export class OrgEventStack extends Construct {
     const { region, accountId, kmsAliasName } = props;
 
     const SecurityhubNotifyPattern = {
-      'source': ['aws.securityhub'],
+      source: ['aws.securityhub'],
       'detail-type': ['Security Hub Findings - Imported'],
-      'detail': {
+      detail: {
         findings: {
           Compliance: {
             Status: ['NOT_AVAILABLE', 'FAILED', 'WARNING'],
@@ -61,7 +61,7 @@ export class OrgEventStack extends Construct {
     const principals = [];
     const eventsServicePrincipal = new iam.ServicePrincipal(
       ServicePrincipals.EVENTS,
-      {},
+      {}
     );
     principals.push(eventsServicePrincipal);
 
