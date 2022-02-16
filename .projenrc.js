@@ -8,6 +8,11 @@ const project = new awscdk.AwsCdkConstructLibrary({
   repositoryUrl: 'ssh://git@github.com/justincase-jp/blea',
   deps: ['cdk-constants'] /* Runtime dependencies of this module. */,
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
+  depsUpgradeOptions: {
+    workflowOptions: {
+      schedule: javascript.UpgradeDependenciesSchedule.expressions(["0 0 * * 1"]), // 毎週月曜日の朝9時
+    },
+  },
   devDeps: [
     '@aws-sdk/client-health',
     'lodash',
