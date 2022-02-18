@@ -1,5 +1,6 @@
 const {
   awscdk,
+  javascript,
 } = require('projen');
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'justincase-jp',
@@ -12,6 +13,11 @@ const project = new awscdk.AwsCdkConstructLibrary({
     'cdk-constants',
   ], /* Runtime dependencies of this module. */
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
+  depsUpgradeOptions: {
+    workflowOptions: {
+      schedule: javascript.UpgradeDependenciesSchedule.expressions(['0 0 * * 1']), // 毎週月曜日の朝9時
+    },
+  },
   devDeps: [
     '@aws-sdk/client-securityhub',
     '@aws-sdk/client-sts',
