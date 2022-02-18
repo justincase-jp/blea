@@ -17,7 +17,7 @@ export interface Props {
   readonly configurationAggregatorName: string;
 }
 
-export class OrgConfigToSecurityhub extends Construct {
+export class OrgConfigSecurityhub extends Construct {
   constructor(scope: Construct, id: string, props: Props) {
     super(scope, id);
     const {

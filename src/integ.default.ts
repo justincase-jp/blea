@@ -3,7 +3,7 @@ import {
   OrgEvent,
   OrgSlackStack,
   OrgHealthStack,
-  OrgConfigToSecurityhub,
+  OrgConfigSecurityhub,
 } from './index';
 
 const app = new App();
@@ -24,7 +24,7 @@ new OrgSlackStack(stack, 'OrgSlackStack', {
 });
 
 // audit account every region
-new OrgConfigToSecurityhub(stack, 'OrgConfigToSecurityhub', {
+new OrgConfigSecurityhub(stack, 'OrgConfigToSecurityhub', {
   auditAccountId: '123456789012',
   snsTopicArn:
     'arn:aws:sns:ap-northeast-1:123456789012:aws-controltower-AggregateSecurityNotifications',
@@ -38,7 +38,7 @@ new OrgHealthStack(stack, 'OrgHealthStack', {
   orgHealthMinutesInterval: '30',
   orgHealthSlackWebHookPath: '/services/xxxxxx/xxxxxx/xxxxxxxxx',
   notifyEventTypeCodes: {
-    global: [
+    'global': [
       'AWS_ABUSE_BOTNET_REPORT',
       'AWS_ABUSE_CC_FRAUD_REPORT',
       'AWS_ABUSE_COPYRIGHT_DMCA_REPORT',

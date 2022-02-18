@@ -42,37 +42,37 @@ new OrgConfigRules(scope: Construct, id: string, props: OrgConfigRulesProps)
 
 
 
-### OrgConfigToSecurityhub <a name="blea.OrgConfigToSecurityhub" id="bleaorgconfigtosecurityhub"></a>
+### OrgConfigSecurityhub <a name="blea.OrgConfigSecurityhub" id="bleaorgconfigsecurityhub"></a>
 
-#### Initializers <a name="blea.OrgConfigToSecurityhub.Initializer" id="bleaorgconfigtosecurityhubinitializer"></a>
+#### Initializers <a name="blea.OrgConfigSecurityhub.Initializer" id="bleaorgconfigsecurityhubinitializer"></a>
 
 ```typescript
-import { OrgConfigToSecurityhub } from 'blea'
+import { OrgConfigSecurityhub } from 'blea'
 
-new OrgConfigToSecurityhub(scope: Construct, id: string, props: Props)
+new OrgConfigSecurityhub(scope: Construct, id: string, props: Props)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| [`scope`](#bleaorgconfigtosecurityhubparameterscope)<span title="Required">*</span> | [`constructs.Construct`](#constructs.Construct) | *No description.* |
-| [`id`](#bleaorgconfigtosecurityhubparameterid)<span title="Required">*</span> | `string` | *No description.* |
-| [`props`](#bleaorgconfigtosecurityhubparameterprops)<span title="Required">*</span> | [`blea.Props`](#blea.Props) | *No description.* |
+| [`scope`](#bleaorgconfigsecurityhubparameterscope)<span title="Required">*</span> | [`constructs.Construct`](#constructs.Construct) | *No description.* |
+| [`id`](#bleaorgconfigsecurityhubparameterid)<span title="Required">*</span> | `string` | *No description.* |
+| [`props`](#bleaorgconfigsecurityhubparameterprops)<span title="Required">*</span> | [`blea.Props`](#blea.Props) | *No description.* |
 
 ---
 
-##### `scope`<sup>Required</sup> <a name="blea.OrgConfigToSecurityhub.parameter.scope" id="bleaorgconfigtosecurityhubparameterscope"></a>
+##### `scope`<sup>Required</sup> <a name="blea.OrgConfigSecurityhub.parameter.scope" id="bleaorgconfigsecurityhubparameterscope"></a>
 
 - *Type:* [`constructs.Construct`](#constructs.Construct)
 
 ---
 
-##### `id`<sup>Required</sup> <a name="blea.OrgConfigToSecurityhub.parameter.id" id="bleaorgconfigtosecurityhubparameterid"></a>
+##### `id`<sup>Required</sup> <a name="blea.OrgConfigSecurityhub.parameter.id" id="bleaorgconfigsecurityhubparameterid"></a>
 
 - *Type:* `string`
 
 ---
 
-##### `props`<sup>Required</sup> <a name="blea.OrgConfigToSecurityhub.parameter.props" id="bleaorgconfigtosecurityhubparameterprops"></a>
+##### `props`<sup>Required</sup> <a name="blea.OrgConfigSecurityhub.parameter.props" id="bleaorgconfigsecurityhubparameterprops"></a>
 
 - *Type:* [`blea.Props`](#blea.Props)
 
@@ -82,37 +82,37 @@ new OrgConfigToSecurityhub(scope: Construct, id: string, props: Props)
 
 
 
-### OrgEventStack <a name="blea.OrgEventStack" id="bleaorgeventstack"></a>
+### OrgEvent <a name="blea.OrgEvent" id="bleaorgevent"></a>
 
-#### Initializers <a name="blea.OrgEventStack.Initializer" id="bleaorgeventstackinitializer"></a>
+#### Initializers <a name="blea.OrgEvent.Initializer" id="bleaorgeventinitializer"></a>
 
 ```typescript
-import { OrgEventStack } from 'blea'
+import { OrgEvent } from 'blea'
 
-new OrgEventStack(scope: Construct, id: string, props: EventSnsProps)
+new OrgEvent(scope: Construct, id: string, props: EventSnsProps)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| [`scope`](#bleaorgeventstackparameterscope)<span title="Required">*</span> | [`constructs.Construct`](#constructs.Construct) | *No description.* |
-| [`id`](#bleaorgeventstackparameterid)<span title="Required">*</span> | `string` | *No description.* |
-| [`props`](#bleaorgeventstackparameterprops)<span title="Required">*</span> | [`blea.EventSnsProps`](#blea.EventSnsProps) | *No description.* |
+| [`scope`](#bleaorgeventparameterscope)<span title="Required">*</span> | [`constructs.Construct`](#constructs.Construct) | *No description.* |
+| [`id`](#bleaorgeventparameterid)<span title="Required">*</span> | `string` | *No description.* |
+| [`props`](#bleaorgeventparameterprops)<span title="Required">*</span> | [`blea.EventSnsProps`](#blea.EventSnsProps) | *No description.* |
 
 ---
 
-##### `scope`<sup>Required</sup> <a name="blea.OrgEventStack.parameter.scope" id="bleaorgeventstackparameterscope"></a>
+##### `scope`<sup>Required</sup> <a name="blea.OrgEvent.parameter.scope" id="bleaorgeventparameterscope"></a>
 
 - *Type:* [`constructs.Construct`](#constructs.Construct)
 
 ---
 
-##### `id`<sup>Required</sup> <a name="blea.OrgEventStack.parameter.id" id="bleaorgeventstackparameterid"></a>
+##### `id`<sup>Required</sup> <a name="blea.OrgEvent.parameter.id" id="bleaorgeventparameterid"></a>
 
 - *Type:* `string`
 
 ---
 
-##### `props`<sup>Required</sup> <a name="blea.OrgEventStack.parameter.props" id="bleaorgeventstackparameterprops"></a>
+##### `props`<sup>Required</sup> <a name="blea.OrgEvent.parameter.props" id="bleaorgeventparameterprops"></a>
 
 - *Type:* [`blea.EventSnsProps`](#blea.EventSnsProps)
 
@@ -124,11 +124,11 @@ new OrgEventStack(scope: Construct, id: string, props: EventSnsProps)
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| [`topic`](#bleaorgeventstackpropertytopic)<span title="Required">*</span> | [`aws-cdk-lib.aws_sns.Topic`](#aws-cdk-lib.aws_sns.Topic) | *No description.* |
+| [`topic`](#bleaorgeventpropertytopic)<span title="Required">*</span> | [`aws-cdk-lib.aws_sns.Topic`](#aws-cdk-lib.aws_sns.Topic) | *No description.* |
 
 ---
 
-##### `topic`<sup>Required</sup> <a name="blea.OrgEventStack.property.topic" id="bleaorgeventstackpropertytopic"></a>
+##### `topic`<sup>Required</sup> <a name="blea.OrgEvent.property.topic" id="bleaorgeventpropertytopic"></a>
 
 ```typescript
 public readonly topic: Topic;
