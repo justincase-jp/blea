@@ -460,10 +460,10 @@
   resolved "https://registry.yarnpkg.com/@aws-sdk/service-error-classification/-/service-error-classification-3.50.0.tgz#a57caec99f3176ac01805841ef54ecb11ec874f9"
   integrity sha512-w3ZrVnBfNTOH2B4SNgtGT/oUuQhNTONDgVZxDdIj0AXLEV7qAipI8bU32SMXTx1Lds7gaqysKsWw5F/Bc5MlLg==
 
-"@aws-sdk/shared-ini-file-loader@3.51.0":
-  version "3.51.0"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/shared-ini-file-loader/-/shared-ini-file-loader-3.51.0.tgz#cf76c10b015451af80713e644799c0f4ef7d95e6"
-  integrity sha512-4BglbnyUugAis4TX2XmZdgwoKouoTo6ey9nKyXPqpF/T3T6xqw1BrV0LCtChFOEue7WxhcufAcbLiofnYV9EAA==
+"@aws-sdk/shared-ini-file-loader@3.49.0":
+  version "3.49.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/shared-ini-file-loader/-/shared-ini-file-loader-3.49.0.tgz#a4d7b84046d9aa28be8158f34f40c21bce1dffda"
+  integrity sha512-TcgKU6U/3JZpenRFhGSy5R5QsBWkYoeawTK1rTK6deu3UbxVwtOkietbfwP3kIwKZ4hz6OkNeHcOJtXX/InZKw==
   dependencies:
     tslib "^2.3.0"
 
@@ -545,12 +545,12 @@
   dependencies:
     tslib "^2.3.0"
 
-"@aws-sdk/util-credentials@3.51.0":
-  version "3.51.0"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/util-credentials/-/util-credentials-3.51.0.tgz#836dbf4d470509d54eeaa95ed96d2a2f80e2fcdc"
-  integrity sha512-qAvsK4etS/lRtQaJRBdJquaASvsxlcLE7eFsWHkjzzaUvuOxB98nO9GCe5J2SDbKvnexQt+PUKNpH8JyO59JPQ==
+"@aws-sdk/util-credentials@3.49.0":
+  version "3.49.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/util-credentials/-/util-credentials-3.49.0.tgz#ca12506c572e988aa5d4ab230499ba2f0934fcf1"
+  integrity sha512-RzbKeuylb56m0zPuLGl5/TkN07+c4PKhZu3hikpsvN8n8n7aFHWPUus63QEGgVaUMCZD0QV6HqJfsCVVFF7UIg==
   dependencies:
-    "@aws-sdk/shared-ini-file-loader" "3.51.0"
+    "@aws-sdk/shared-ini-file-loader" "3.49.0"
     tslib "^2.3.0"
 
 "@aws-sdk/util-defaults-mode-browser@3.50.0":
