@@ -1,4 +1,4 @@
-const { awscdk } = require('projen');
+const { awscdk, javascript } = require('projen');
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'justincase-jp',
   authorAddress: '13391129+xhiroga@users.noreply.github.com',
@@ -10,7 +10,9 @@ const project = new awscdk.AwsCdkConstructLibrary({
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
   depsUpgradeOptions: {
     workflowOptions: {
-      schedule: javascript.UpgradeDependenciesSchedule.expressions(["0 0 * * 1"]), // 毎週月曜日の朝9時
+      schedule: javascript.UpgradeDependenciesSchedule.expressions([
+        '0 0 * * 1',
+      ]), // 毎週月曜日の朝9時
     },
   },
   devDeps: [
