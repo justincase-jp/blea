@@ -1,20 +1,36 @@
 import { App, Stack } from 'aws-cdk-lib';
-import { OrgEventStack, OrgSlackStack, OrgHealthStack } from './index';
+import {
+  OrgEvent,
+  OrgSlackStack,
+  OrgHealthStack,
+  OrgConfigToSecurityhub,
+} from './index';
 
 const app = new App();
 const stack = new Stack(app, 'MyStack');
 
-const orgEventStack = new OrgEventStack(stack, 'OrgEventStack', {
+// audit account
+const orgEvent = new OrgEvent(stack, 'OrgEvent', {
   region: 'ap-northeast-1',
   accountId: '123456789012',
   kmsAliasName: 'jicOrgTest',
 });
 
 new OrgSlackStack(stack, 'OrgSlackStack', {
-  snsTopic: [orgEventStack.topic],
+  snsTopic: [orgEvent.topic],
   workspaceId: 'xxxxxxx',
   channelId: 'xxxxxxx',
   slackChannelConfigurationName: 'xxxxxxx',
+});
+
+// audit account every region
+new OrgConfigToSecurityhub(stack, 'OrgConfigToSecurityhub', {
+  auditAccountId: '123456789012',
+  snsTopicArn:
+    'arn:aws:sns:ap-northeast-1:123456789012:aws-controltower-AggregateSecurityNotifications',
+  controlTowerHomeRegion: 'ap-northeast-1',
+  configurationAggregatorName:
+    'aws-controltower-GuardrailsComplianceAggregator',
 });
 
 // rootAccount
@@ -22,7 +38,7 @@ new OrgHealthStack(stack, 'OrgHealthStack', {
   orgHealthMinutesInterval: '30',
   orgHealthSlackWebHookPath: '/services/xxxxxx/xxxxxx/xxxxxxxxx',
   notifyEventTypeCodes: {
-    'global': [
+    global: [
       'AWS_ABUSE_BOTNET_REPORT',
       'AWS_ABUSE_CC_FRAUD_REPORT',
       'AWS_ABUSE_COPYRIGHT_DMCA_REPORT',
