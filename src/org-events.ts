@@ -16,7 +16,7 @@ export interface EventSnsProps {
   readonly kmsAliasName: string;
 }
 
-export class OrgEventStack extends Construct {
+export class OrgEvent extends Construct {
   public readonly topic: sns.Topic;
   constructor(scope: Construct, id: string, props: EventSnsProps) {
     super(scope, id);
