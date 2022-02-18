@@ -22,9 +22,9 @@ This provides eventBridge rule from securityhub to SNS which is encrypted
 
 ### Usage
 ```
-import { OrgEventStack } from 'blea';
+import { OrgEvent } from 'blea';
 
-const orgEvent = new OrgEventStack(this, 'OrgEventStack', {
+const orgEvent = new OrgEvent(this, 'OrgEvent', {
     region: props?.env?.region || '',
     accountId: props?.env?.account || '',
     kmsAliasName: 'jicOrgTest',
@@ -89,7 +89,7 @@ it supposes to be used with OrgEvent.
   const slackWorkspaceId = "xxxxx"
   const slackChannelId   = "xxxxx"
 
-  const orgSlackStack = new OrgSlackStack(this, 'OrgSlack', {
+  const OrgSlack = new OrgSlack(this, 'OrgSlack', {
       snsTopic: [orgEven.topic],
       workspaceId: slackWorkspaceId,
       channelId: slackChannelId,

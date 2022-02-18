@@ -219,37 +219,37 @@ new OrgRoleStackSet(scope: Construct, id: string, props: OrgRoleStackSetProps)
 
 
 
-### OrgSlackStack <a name="blea.OrgSlackStack" id="bleaorgslackstack"></a>
+### OrgSlack <a name="blea.OrgSlack" id="bleaorgslack"></a>
 
-#### Initializers <a name="blea.OrgSlackStack.Initializer" id="bleaorgslackstackinitializer"></a>
+#### Initializers <a name="blea.OrgSlack.Initializer" id="bleaorgslackinitializer"></a>
 
 ```typescript
-import { OrgSlackStack } from 'blea'
+import { OrgSlack } from 'blea'
 
-new OrgSlackStack(scope: Construct, id: string, props: OrgSlackProps)
+new OrgSlack(scope: Construct, id: string, props: OrgSlackProps)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| [`scope`](#bleaorgslackstackparameterscope)<span title="Required">*</span> | [`constructs.Construct`](#constructs.Construct) | *No description.* |
-| [`id`](#bleaorgslackstackparameterid)<span title="Required">*</span> | `string` | *No description.* |
-| [`props`](#bleaorgslackstackparameterprops)<span title="Required">*</span> | [`blea.OrgSlackProps`](#blea.OrgSlackProps) | *No description.* |
+| [`scope`](#bleaorgslackparameterscope)<span title="Required">*</span> | [`constructs.Construct`](#constructs.Construct) | *No description.* |
+| [`id`](#bleaorgslackparameterid)<span title="Required">*</span> | `string` | *No description.* |
+| [`props`](#bleaorgslackparameterprops)<span title="Required">*</span> | [`blea.OrgSlackProps`](#blea.OrgSlackProps) | *No description.* |
 
 ---
 
-##### `scope`<sup>Required</sup> <a name="blea.OrgSlackStack.parameter.scope" id="bleaorgslackstackparameterscope"></a>
+##### `scope`<sup>Required</sup> <a name="blea.OrgSlack.parameter.scope" id="bleaorgslackparameterscope"></a>
 
 - *Type:* [`constructs.Construct`](#constructs.Construct)
 
 ---
 
-##### `id`<sup>Required</sup> <a name="blea.OrgSlackStack.parameter.id" id="bleaorgslackstackparameterid"></a>
+##### `id`<sup>Required</sup> <a name="blea.OrgSlack.parameter.id" id="bleaorgslackparameterid"></a>
 
 - *Type:* `string`
 
 ---
 
-##### `props`<sup>Required</sup> <a name="blea.OrgSlackStack.parameter.props" id="bleaorgslackstackparameterprops"></a>
+##### `props`<sup>Required</sup> <a name="blea.OrgSlack.parameter.props" id="bleaorgslackparameterprops"></a>
 
 - *Type:* [`blea.OrgSlackProps`](#blea.OrgSlackProps)
 

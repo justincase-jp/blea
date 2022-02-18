@@ -1,8 +1,8 @@
 import { App, Stack } from 'aws-cdk-lib';
 import {
   OrgAccountInit,
-  OrgEventStack,
-  OrgSlackStack,
+  OrgEvent,
+  OrgSlack,
 } from './index';
 
 const disableArnsBasicAll = [
@@ -185,14 +185,14 @@ const AuditStack = new Stack(app, 'AuditStack',
   },
 );
 
-const orgEventStack = new OrgEventStack(AuditStack, 'OrgEventStack', {
+const orgEvent = new OrgEvent(AuditStack, 'OrgEvent', {
   region: 'ap-northeast-1',
   accountId: '123456789012',
   kmsAliasName: 'jicOrgTest',
 });
 
-new OrgSlackStack(AuditStack, 'OrgSlackStack', {
-  snsTopic: [orgEventStack.topic],
+new OrgSlack(AuditStack, 'OrgSlack', {
+  snsTopic: [orgEvent.topic],
   workspaceId: 'xxxxxxx',
   channelId: 'xxxxxxx',
   slackChannelConfigurationName: 'xxxxxxx',
