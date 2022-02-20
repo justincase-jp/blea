@@ -2,10 +2,12 @@
   "dependencies": [
     {
       "name": "@aws-sdk/client-securityhub",
+      "version": "3.49.0",
       "type": "build"
     },
     {
       "name": "@aws-sdk/client-sts",
+      "version": "3.49.0",
       "type": "build"
     },
     {

@@ -19,8 +19,10 @@ const project = new awscdk.AwsCdkConstructLibrary({
     },
   },
   devDeps: [
-    '@aws-sdk/client-securityhub',
-    '@aws-sdk/client-sts',
+    // 3.49.0以上だとcompile時にaws-sdk内部でType Errorがでるので固定する
+    // https://github.com/projen/projen/issues/1624
+    '@aws-sdk/client-securityhub@3.49.0',
+    '@aws-sdk/client-sts@3.49.0',
   ],
 });
 const common_exclude = [
