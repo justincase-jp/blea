@@ -2,6 +2,46 @@
 
 ## Constructs <a name="Constructs" id="constructs"></a>
 
+### OrgAccountInit <a name="blea.OrgAccountInit" id="bleaorgaccountinit"></a>
+
+#### Initializers <a name="blea.OrgAccountInit.Initializer" id="bleaorgaccountinitinitializer"></a>
+
+```typescript
+import { OrgAccountInit } from 'blea'
+
+new OrgAccountInit(scope: Construct, id: string, props: OrgAccountInitProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| [`scope`](#bleaorgaccountinitparameterscope)<span title="Required">*</span> | [`constructs.Construct`](#constructs.Construct) | *No description.* |
+| [`id`](#bleaorgaccountinitparameterid)<span title="Required">*</span> | `string` | *No description.* |
+| [`props`](#bleaorgaccountinitparameterprops)<span title="Required">*</span> | [`blea.OrgAccountInitProps`](#blea.OrgAccountInitProps) | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="blea.OrgAccountInit.parameter.scope" id="bleaorgaccountinitparameterscope"></a>
+
+- *Type:* [`constructs.Construct`](#constructs.Construct)
+
+---
+
+##### `id`<sup>Required</sup> <a name="blea.OrgAccountInit.parameter.id" id="bleaorgaccountinitparameterid"></a>
+
+- *Type:* `string`
+
+---
+
+##### `props`<sup>Required</sup> <a name="blea.OrgAccountInit.parameter.props" id="bleaorgaccountinitparameterprops"></a>
+
+- *Type:* [`blea.OrgAccountInitProps`](#blea.OrgAccountInitProps)
+
+---
+
+
+
+
+
 ### OrgConfigRules <a name="blea.OrgConfigRules" id="bleaorgconfigrules"></a>
 
 #### Initializers <a name="blea.OrgConfigRules.Initializer" id="bleaorgconfigrulesinitializer"></a>
@@ -139,39 +179,39 @@ public readonly topic: Topic;
 ---
 
 
-### OrgHealthStack <a name="blea.OrgHealthStack" id="bleaorghealthstack"></a>
+### OrgRoleStackSet <a name="blea.OrgRoleStackSet" id="bleaorgrolestackset"></a>
 
-#### Initializers <a name="blea.OrgHealthStack.Initializer" id="bleaorghealthstackinitializer"></a>
+#### Initializers <a name="blea.OrgRoleStackSet.Initializer" id="bleaorgrolestacksetinitializer"></a>
 
 ```typescript
-import { OrgHealthStack } from 'blea'
+import { OrgRoleStackSet } from 'blea'
 
-new OrgHealthStack(scope: Construct, id: string, props: OrgHealthProps)
+new OrgRoleStackSet(scope: Construct, id: string, props: OrgRoleStackSetProps)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| [`scope`](#bleaorghealthstackparameterscope)<span title="Required">*</span> | [`constructs.Construct`](#constructs.Construct) | *No description.* |
-| [`id`](#bleaorghealthstackparameterid)<span title="Required">*</span> | `string` | *No description.* |
-| [`props`](#bleaorghealthstackparameterprops)<span title="Required">*</span> | [`blea.OrgHealthProps`](#blea.OrgHealthProps) | *No description.* |
+| [`scope`](#bleaorgrolestacksetparameterscope)<span title="Required">*</span> | [`constructs.Construct`](#constructs.Construct) | *No description.* |
+| [`id`](#bleaorgrolestacksetparameterid)<span title="Required">*</span> | `string` | *No description.* |
+| [`props`](#bleaorgrolestacksetparameterprops)<span title="Required">*</span> | [`blea.OrgRoleStackSetProps`](#blea.OrgRoleStackSetProps) | *No description.* |
 
 ---
 
-##### `scope`<sup>Required</sup> <a name="blea.OrgHealthStack.parameter.scope" id="bleaorghealthstackparameterscope"></a>
+##### `scope`<sup>Required</sup> <a name="blea.OrgRoleStackSet.parameter.scope" id="bleaorgrolestacksetparameterscope"></a>
 
 - *Type:* [`constructs.Construct`](#constructs.Construct)
 
 ---
 
-##### `id`<sup>Required</sup> <a name="blea.OrgHealthStack.parameter.id" id="bleaorghealthstackparameterid"></a>
+##### `id`<sup>Required</sup> <a name="blea.OrgRoleStackSet.parameter.id" id="bleaorgrolestacksetparameterid"></a>
 
 - *Type:* `string`
 
 ---
 
-##### `props`<sup>Required</sup> <a name="blea.OrgHealthStack.parameter.props" id="bleaorghealthstackparameterprops"></a>
+##### `props`<sup>Required</sup> <a name="blea.OrgRoleStackSet.parameter.props" id="bleaorgrolestacksetparameterprops"></a>
 
-- *Type:* [`blea.OrgHealthProps`](#blea.OrgHealthProps)
+- *Type:* [`blea.OrgRoleStackSetProps`](#blea.OrgRoleStackSetProps)
 
 ---
 
@@ -179,37 +219,37 @@ new OrgHealthStack(scope: Construct, id: string, props: OrgHealthProps)
 
 
 
-### OrgSlackStack <a name="blea.OrgSlackStack" id="bleaorgslackstack"></a>
+### OrgSlack <a name="blea.OrgSlack" id="bleaorgslack"></a>
 
-#### Initializers <a name="blea.OrgSlackStack.Initializer" id="bleaorgslackstackinitializer"></a>
+#### Initializers <a name="blea.OrgSlack.Initializer" id="bleaorgslackinitializer"></a>
 
 ```typescript
-import { OrgSlackStack } from 'blea'
+import { OrgSlack } from 'blea'
 
-new OrgSlackStack(scope: Construct, id: string, props: OrgSlackProps)
+new OrgSlack(scope: Construct, id: string, props: OrgSlackProps)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| [`scope`](#bleaorgslackstackparameterscope)<span title="Required">*</span> | [`constructs.Construct`](#constructs.Construct) | *No description.* |
-| [`id`](#bleaorgslackstackparameterid)<span title="Required">*</span> | `string` | *No description.* |
-| [`props`](#bleaorgslackstackparameterprops)<span title="Required">*</span> | [`blea.OrgSlackProps`](#blea.OrgSlackProps) | *No description.* |
+| [`scope`](#bleaorgslackparameterscope)<span title="Required">*</span> | [`constructs.Construct`](#constructs.Construct) | *No description.* |
+| [`id`](#bleaorgslackparameterid)<span title="Required">*</span> | `string` | *No description.* |
+| [`props`](#bleaorgslackparameterprops)<span title="Required">*</span> | [`blea.OrgSlackProps`](#blea.OrgSlackProps) | *No description.* |
 
 ---
 
-##### `scope`<sup>Required</sup> <a name="blea.OrgSlackStack.parameter.scope" id="bleaorgslackstackparameterscope"></a>
+##### `scope`<sup>Required</sup> <a name="blea.OrgSlack.parameter.scope" id="bleaorgslackparameterscope"></a>
 
 - *Type:* [`constructs.Construct`](#constructs.Construct)
 
 ---
 
-##### `id`<sup>Required</sup> <a name="blea.OrgSlackStack.parameter.id" id="bleaorgslackstackparameterid"></a>
+##### `id`<sup>Required</sup> <a name="blea.OrgSlack.parameter.id" id="bleaorgslackparameterid"></a>
 
 - *Type:* `string`
 
 ---
 
-##### `props`<sup>Required</sup> <a name="blea.OrgSlackStack.parameter.props" id="bleaorgslackstackparameterprops"></a>
+##### `props`<sup>Required</sup> <a name="blea.OrgSlack.parameter.props" id="bleaorgslackparameterprops"></a>
 
 - *Type:* [`blea.OrgSlackProps`](#blea.OrgSlackProps)
 
@@ -265,6 +305,89 @@ public readonly kmsAliasName: string;
 
 ```typescript
 public readonly region: string;
+```
+
+- *Type:* `string`
+
+---
+
+### OrgAccountInitProps <a name="blea.OrgAccountInitProps" id="bleaorgaccountinitprops"></a>
+
+#### Initializer <a name="[object Object].Initializer" id="object-objectinitializer"></a>
+
+```typescript
+import { OrgAccountInitProps } from 'blea'
+
+const orgAccountInitProps: OrgAccountInitProps = { ... }
+```
+
+#### Properties <a name="Properties" id="properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| [`controlTowerHomeRegion`](#bleaorgaccountinitpropspropertycontroltowerhomeregion)<span title="Required">*</span> | `string` | *No description.* |
+| [`disableArnsBasicAll`](#bleaorgaccountinitpropspropertydisablearnsbasicall)<span title="Required">*</span> | `string`[] | *No description.* |
+| [`disableArnsBasicVA`](#bleaorgaccountinitpropspropertydisablearnsbasicva)<span title="Required">*</span> | `string`[] | *No description.* |
+| [`disableArnsCISAll`](#bleaorgaccountinitpropspropertydisablearnscisall)<span title="Required">*</span> | `string`[] | *No description.* |
+| [`disableArnsCISNotCtHome`](#bleaorgaccountinitpropspropertydisablearnscisnotcthome)<span title="Required">*</span> | `string`[] | *No description.* |
+| [`roleName`](#bleaorgaccountinitpropspropertyrolename)<span title="Required">*</span> | `string` | *No description.* |
+
+---
+
+##### `controlTowerHomeRegion`<sup>Required</sup> <a name="blea.OrgAccountInitProps.property.controlTowerHomeRegion" id="bleaorgaccountinitpropspropertycontroltowerhomeregion"></a>
+
+```typescript
+public readonly controlTowerHomeRegion: string;
+```
+
+- *Type:* `string`
+
+---
+
+##### `disableArnsBasicAll`<sup>Required</sup> <a name="blea.OrgAccountInitProps.property.disableArnsBasicAll" id="bleaorgaccountinitpropspropertydisablearnsbasicall"></a>
+
+```typescript
+public readonly disableArnsBasicAll: string[];
+```
+
+- *Type:* `string`[]
+
+---
+
+##### `disableArnsBasicVA`<sup>Required</sup> <a name="blea.OrgAccountInitProps.property.disableArnsBasicVA" id="bleaorgaccountinitpropspropertydisablearnsbasicva"></a>
+
+```typescript
+public readonly disableArnsBasicVA: string[];
+```
+
+- *Type:* `string`[]
+
+---
+
+##### `disableArnsCISAll`<sup>Required</sup> <a name="blea.OrgAccountInitProps.property.disableArnsCISAll" id="bleaorgaccountinitpropspropertydisablearnscisall"></a>
+
+```typescript
+public readonly disableArnsCISAll: string[];
+```
+
+- *Type:* `string`[]
+
+---
+
+##### `disableArnsCISNotCtHome`<sup>Required</sup> <a name="blea.OrgAccountInitProps.property.disableArnsCISNotCtHome" id="bleaorgaccountinitpropspropertydisablearnscisnotcthome"></a>
+
+```typescript
+public readonly disableArnsCISNotCtHome: string[];
+```
+
+- *Type:* `string`[]
+
+---
+
+##### `roleName`<sup>Required</sup> <a name="blea.OrgAccountInitProps.property.roleName" id="bleaorgaccountinitpropspropertyrolename"></a>
+
+```typescript
+public readonly roleName: string;
 ```
 
 - *Type:* `string`
@@ -332,53 +455,53 @@ public readonly configRulesOnlyUsEast1: any[];
 
 ---
 
-### OrgHealthProps <a name="blea.OrgHealthProps" id="bleaorghealthprops"></a>
+### OrgRoleStackSetProps <a name="blea.OrgRoleStackSetProps" id="bleaorgrolestacksetprops"></a>
 
 #### Initializer <a name="[object Object].Initializer" id="object-objectinitializer"></a>
 
 ```typescript
-import { OrgHealthProps } from 'blea'
+import { OrgRoleStackSetProps } from 'blea'
 
-const orgHealthProps: OrgHealthProps = { ... }
+const orgRoleStackSetProps: OrgRoleStackSetProps = { ... }
 ```
 
 #### Properties <a name="Properties" id="properties"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| [`notifyEventTypeCodes`](#bleaorghealthpropspropertynotifyeventtypecodes)<span title="Required">*</span> | `any` | *No description.* |
-| [`orgHealthMinutesInterval`](#bleaorghealthpropspropertyorghealthminutesinterval)<span title="Required">*</span> | `string` | *No description.* |
-| [`orgHealthSlackWebHookPath`](#bleaorghealthpropspropertyorghealthslackwebhookpath)<span title="Required">*</span> | `string` | *No description.* |
+| [`auditAccountID`](#bleaorgrolestacksetpropspropertyauditaccountid)<span title="Required">*</span> | `string` | *No description.* |
+| [`roleName`](#bleaorgrolestacksetpropspropertyrolename)<span title="Required">*</span> | `string` | *No description.* |
+| [`stackInstancesGroup`](#bleaorgrolestacksetpropspropertystackinstancesgroup)<span title="Required">*</span> | [`aws-cdk-lib.aws_cloudformation.CfnStackSet.StackInstancesProperty`](#aws-cdk-lib.aws_cloudformation.CfnStackSet.StackInstancesProperty) | *No description.* |
 
 ---
 
-##### `notifyEventTypeCodes`<sup>Required</sup> <a name="blea.OrgHealthProps.property.notifyEventTypeCodes" id="bleaorghealthpropspropertynotifyeventtypecodes"></a>
+##### `auditAccountID`<sup>Required</sup> <a name="blea.OrgRoleStackSetProps.property.auditAccountID" id="bleaorgrolestacksetpropspropertyauditaccountid"></a>
 
 ```typescript
-public readonly notifyEventTypeCodes: any;
-```
-
-- *Type:* `any`
-
----
-
-##### `orgHealthMinutesInterval`<sup>Required</sup> <a name="blea.OrgHealthProps.property.orgHealthMinutesInterval" id="bleaorghealthpropspropertyorghealthminutesinterval"></a>
-
-```typescript
-public readonly orgHealthMinutesInterval: string;
+public readonly auditAccountID: string;
 ```
 
 - *Type:* `string`
 
 ---
 
-##### `orgHealthSlackWebHookPath`<sup>Required</sup> <a name="blea.OrgHealthProps.property.orgHealthSlackWebHookPath" id="bleaorghealthpropspropertyorghealthslackwebhookpath"></a>
+##### `roleName`<sup>Required</sup> <a name="blea.OrgRoleStackSetProps.property.roleName" id="bleaorgrolestacksetpropspropertyrolename"></a>
 
 ```typescript
-public readonly orgHealthSlackWebHookPath: string;
+public readonly roleName: string;
 ```
 
 - *Type:* `string`
+
+---
+
+##### `stackInstancesGroup`<sup>Required</sup> <a name="blea.OrgRoleStackSetProps.property.stackInstancesGroup" id="bleaorgrolestacksetpropspropertystackinstancesgroup"></a>
+
+```typescript
+public readonly stackInstancesGroup: StackInstancesProperty;
+```
+
+- *Type:* [`aws-cdk-lib.aws_cloudformation.CfnStackSet.StackInstancesProperty`](#aws-cdk-lib.aws_cloudformation.CfnStackSet.StackInstancesProperty)
 
 ---
 

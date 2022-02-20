@@ -14,7 +14,7 @@ export interface OrgSlackProps {
   readonly slackChannelConfigurationName: string;
 }
 
-export class OrgSlackStack extends Construct {
+export class OrgSlack extends Construct {
   constructor(scope: Construct, id: string, props: OrgSlackProps) {
     super(scope, id);
 

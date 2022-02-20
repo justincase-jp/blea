@@ -7,6 +7,11 @@
   "scripts": {
     "build": "npx projen build",
     "bump": "npx projen bump",
+    "bundle": "npx projen bundle",
+    "bundle:lambda/disable-securityhub.lambda": "npx projen bundle:lambda/disable-securityhub.lambda",
+    "bundle:lambda/disable-securityhub.lambda:watch": "npx projen bundle:lambda/disable-securityhub.lambda:watch",
+    "bundle:lambda/sw-role.lambda": "npx projen bundle:lambda/sw-role.lambda",
+    "bundle:lambda/sw-role.lambda:watch": "npx projen bundle:lambda/sw-role.lambda:watch",
     "clobber": "npx projen clobber",
     "compat": "npx projen compat",
     "compile": "npx projen compile",
@@ -36,13 +41,13 @@
     "organization": false
   },
   "devDependencies": {
-    "@aws-sdk/client-health": "^3.51.0",
+    "@aws-sdk/client-securityhub": "3.49.0",
+    "@aws-sdk/client-sts": "3.49.0",
     "@types/jest": "^27.4.0",
-    "@types/lodash": "^4.14.178",
     "@types/node": "^12",
     "@typescript-eslint/eslint-plugin": "^5",
     "@typescript-eslint/parser": "^5",
-    "aws-cdk-lib": "2.1.0",
+    "aws-cdk-lib": "2.12.0",
     "constructs": "10.0.5",
     "esbuild": "0",
     "eslint": "^8",
@@ -55,7 +60,6 @@
     "jsii-diff": "^1.54.0",
     "jsii-docgen": "^4.2.44",
     "json-schema": "^0.4.0",
-    "lodash": "^4.17.21",
     "npm-check-updates": "^12",
     "projen": "^0.52.35",
     "standard-version": "^9",
@@ -63,7 +67,7 @@
     "typescript": "^4.5.5"
   },
   "peerDependencies": {
-    "aws-cdk-lib": "^2.1.0",
+    "aws-cdk-lib": "^2.12.0",
     "constructs": "^10.0.5"
   },
   "dependencies": {
