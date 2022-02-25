@@ -6,7 +6,7 @@ import {
 type EventProps = {
   accountId: string;
   region: string;
-  swroleResultPath: {
+  swRoleResultPath: {
     Payload: {
       AccessKeyId: string;
       SecretAccessKey: string;
@@ -25,7 +25,7 @@ const controlTowerHomeRegion = process.env.controlTowerHomeRegion!;
 export async function handler(event: EventProps) {
   const { accountId, region } = event;
   const { AccessKeyId, SecretAccessKey, SessionToken } =
-    event.swroleResultPath.Payload;
+    event.swRoleResultPath.Payload;
   const sechubClient = new SecurityHubClient({
     region: region,
     credentials: {
