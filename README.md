@@ -19,8 +19,8 @@ This provides eventBridge rule from securityhub to SNS which is encrypted
 | Deploy Account | Audit Account                 |
 | Resources      | EventBridgeRule,SNS Topic,KMS |
 
-
 ### Usage
+
 ```
 import { OrgEvent } from 'blea';
 
@@ -30,6 +30,7 @@ const orgEvent = new OrgEvent(this, 'OrgEvent', {
     kmsAliasName: 'jicOrgTest',
 });
 ```
+
 # OrgConfigRules
 
 ### Overview
@@ -73,16 +74,18 @@ const orgConfigRules = new OrgConfigRules(this, 'OrgConfigRules', {
 
 This provides aws chatbot for slack to notify findings .
 
-| Item           | Description                   |
-| -------------- | ----------------------------- |
-| Deploy Account | Audit Account                 |
-| Resources      | chatbot |
+| Item           | Description   |
+| -------------- | ------------- |
+| Deploy Account | Audit Account |
+| Resources      | chatbot       |
 
 ### Prerequisites
+
 before deploying ,you have done configure new client. for more details , see below
 https://docs.aws.amazon.com/dtconsole/latest/userguide/notifications-chatbot.html
 
 ### Usage
+
 it supposes to be used with OrgEvent.
 
 ```
@@ -97,7 +100,7 @@ it supposes to be used with OrgEvent.
     });
 ```
 
-# OrgConfigToSecurityhub
+# OrgConfigSecurityhub
 
 ### Overview
 
@@ -107,20 +110,19 @@ from all children accounts config compliance .
 you have sns topic named 'aws-controltower-AggregateSecurityNotifications' that created by aws controltower .
 All config compliance informations are sent to that one .
 
-| Item           | Description                   |
-| -------------- | ----------------------------- |
-| Deploy Account | Audit Account                 |
-| Resources      | lambda |
+| Item           | Description   |
+| -------------- | ------------- |
+| Deploy Account | Audit Account |
+| Resources      | lambda        |
 
 ### Prerequisites
 
 Control tower is enabled in your organizations .
 
-
 ### Usage
 
 ```
-new OrgConfigToSecurityhub(stack, 'OrgConfigToSecurityhub', {
+new OrgConfigSecurityhub(stack, 'OrgConfigSecurityhub', {
   auditAccountId: '123456789012',
   snsTopicArn:
     'arn:aws:sns:ap-northeast-1:123456789012:aws-controltower-AggregateSecurityNotifications',
@@ -130,13 +132,64 @@ new OrgConfigToSecurityhub(stack, 'OrgConfigToSecurityhub', {
 });
 ```
 
-# OrgAccountInitProc
-
-TODO:
-
 # OrgStackSet
 
-TODO:
+### Overview
+
+This provides IAM role to switch from auidt account to child account.
+this is deployed by cloudfromation stack sets.
+
+| Item           | Description                    |
+| -------------- | ------------------------------ |
+| Deploy Account | root Account                   |
+| Resources      | cloudformation stacksets , Iam |
+
+### Usage
+
+```
+new OrgRoleStackSet(this, 'OrgRoleStackSet', {
+  auditAccountID: "012345678912",
+  roleName: 'swrole-from-blea',
+  stackInstancesGroup: {
+    regions: [controlTowerHomeRegion],
+    deploymentTargets: {
+      organizationalUnitIds: [
+        'ou-xxxxxx',
+        'ou-xxxxxx',
+      ]
+    },
+  },
+});
+```
+
+# OrgAccountInitProc
+
+### Overview
+
+This provides stepfunciton to disable specific item in securityhub standard cis and aws standard.
+
+| Item           | Description                |
+| -------------- | -------------------------- |
+| Deploy Account | root Account               |
+| Resources      | stepfunctions , lambda,Iam |
+
+### Prerequisites
+
+This is supporsed to be deployed with OrgStackSet .
+so, before run this, you must deploy OrgStackSet
+
+### Usage
+
+```
+new OrgAccountInit(this, 'OrgAccountInit', {
+  roleName: 'swrole-from-blea',
+  disableArnsBasicAll: ['ACM.1','APIGateway.1'],
+  disableArnsCISAll: ['1.1','1.10'],
+  disableArnsBasicVA: ['CloudFront.1','CloudFront.2'],
+  disableArnsCISNotCtHome: ['1.12', '1.13', '1.16', '1.2', '1.2'],
+  controlTowerHomeRegion: controlTowerHomeRegion,
+});
+```
 
 # for contributor
 
@@ -156,7 +209,6 @@ $ yarn watch
 ## IMPORTANT!
 
 DO NOT EDIT by package.json
-
 
 ## to check specific source
 

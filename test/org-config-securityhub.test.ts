@@ -1,6 +1,7 @@
 import { App, Stack, aws_sns as sns } from 'aws-cdk-lib';
 import { Template } from 'aws-cdk-lib/assertions';
 import { OrgConfigSecurityhub } from '../src';
+import { ManagedPolicies } from 'cdk-constants';
 
 test('OrgConfigSecurityhub', () => {
   const app = new App();
@@ -22,6 +23,8 @@ test('OrgConfigSecurityhub', () => {
   template.resourceCountIs('AWS::Lambda::Permission', 1);
   template.resourceCountIs('AWS::SNS::Subscription', 1);
 
+  console.log('print:', ManagedPolicies.AWS_LAMBDA_BASIC_EXECUTION_ROLE);
+
   template.hasResourceProperties('AWS::IAM::Role', {
     ManagedPolicyArns: [
       {
@@ -32,7 +35,7 @@ test('OrgConfigSecurityhub', () => {
             {
               Ref: 'AWS::Partition',
             },
-            ':iam::aws:policy/service-role/AWSLambdaBasicExecutionRole',
+            `:iam::aws:policy/${ManagedPolicies.AWS_LAMBDA_BASIC_EXECUTION_ROLE}`,
           ],
         ],
       },
@@ -44,7 +47,7 @@ test('OrgConfigSecurityhub', () => {
             {
               Ref: 'AWS::Partition',
             },
-            ':iam::aws:policy/AWSSecurityHubFullAccess',
+            `:iam::aws:policy/${ManagedPolicies.AWS_SECURITY_HUB_FULL_ACCESS}`,
           ],
         ],
       },
@@ -56,7 +59,7 @@ test('OrgConfigSecurityhub', () => {
             {
               Ref: 'AWS::Partition',
             },
-            ':iam::aws:policy/AWSConfigUserAccess',
+            `:iam::aws:policy/${ManagedPolicies.AWS_CONFIG_USER_ACCESS}`,
           ],
         ],
       },
