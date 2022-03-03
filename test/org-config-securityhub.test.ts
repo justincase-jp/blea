@@ -1,7 +1,7 @@
 import { App, Stack, aws_sns as sns } from 'aws-cdk-lib';
 import { Template } from 'aws-cdk-lib/assertions';
-import { OrgConfigSecurityhub } from '../src';
 import { ManagedPolicies } from 'cdk-constants';
+import { OrgConfigSecurityhub } from '../src';
 
 test('OrgConfigSecurityhub', () => {
   const app = new App();
