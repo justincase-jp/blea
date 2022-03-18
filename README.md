@@ -191,6 +191,14 @@ new OrgAccountInit(this, 'OrgAccountInit', {
 });
 ```
 
+once you create , execute stepfunction with event like below.
+```
+{
+  "accountId": "xxxxxxxxxxx",
+  "region": "ap-northeast-1"
+}
+```
+
 # for contributor
 
 first step
