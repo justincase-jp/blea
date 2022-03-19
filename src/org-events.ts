@@ -29,7 +29,7 @@ export class OrgEvent extends Construct {
       'detail': {
         findings: {
           Compliance: {
-            Status: ['NOT_AVAILABLE', 'FAILED', 'WARNING'],
+            Status: ['FAILED', 'WARNING'],
           },
           Workflow: {
             Status: ['NEW'],
