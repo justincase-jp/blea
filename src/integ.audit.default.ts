@@ -165,9 +165,9 @@ const auditRegion = 'ap-northeast-1';
 const roleName = 'swrole-from-blea';
 
 const securityhubNotifyPattern = {
-  source: ['aws.securityhub'],
+  'source': ['aws.securityhub'],
   'detail-type': ['Security Hub Findings - Imported'],
-  detail: {
+  'detail': {
     findings: {
       Compliance: {
         Status: ['FAILED', 'WARNING'],

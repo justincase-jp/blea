@@ -49,7 +49,7 @@ export class OrgEvent extends Construct {
     const principals = [];
     const eventsServicePrincipal = new iam.ServicePrincipal(
       ServicePrincipals.EVENTS,
-      {}
+      {},
     );
     principals.push(eventsServicePrincipal);
 

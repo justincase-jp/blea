@@ -3,9 +3,9 @@ import { Template } from 'aws-cdk-lib/assertions';
 import { OrgEvent } from '../src';
 
 const securityhubNotifyPattern = {
-  source: ['aws.securityhub'],
+  'source': ['aws.securityhub'],
   'detail-type': ['Security Hub Findings - Imported'],
-  detail: {
+  'detail': {
     findings: {
       Compliance: {
         Status: ['FAILED', 'WARNING'],
