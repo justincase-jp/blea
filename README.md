@@ -24,10 +24,26 @@ This provides eventBridge rule from securityhub to SNS which is encrypted
 ```
 import { OrgEvent } from 'blea';
 
+const securityhubNotifyPattern = {
+  source: ['aws.securityhub'],
+  'detail-type': ['Security Hub Findings - Imported'],
+  detail: {
+    findings: {
+      Compliance: {
+        Status: ['FAILED', 'WARNING'],
+      },
+      Workflow: {
+        Status: ['NEW'],
+      },
+    },
+  },
+};
+
 const orgEvent = new OrgEvent(this, 'OrgEvent', {
     region: props?.env?.region || '',
     accountId: props?.env?.account || '',
     kmsAliasName: 'jicOrgTest',
+    securityhubNotifyPattern: securityhubNotifyPattern,
 });
 ```
 
@@ -192,6 +208,7 @@ new OrgAccountInit(this, 'OrgAccountInit', {
 ```
 
 once you create , execute stepfunction with event like below.
+
 ```
 {
   "accountId": "xxxxxxxxxxx",
