@@ -1,9 +1,5 @@
 import { App, Stack } from 'aws-cdk-lib';
-import {
-  OrgAccountInit,
-  OrgEvent,
-  OrgSlack,
-} from './index';
+import { OrgAccountInit, OrgEvent, OrgSlack } from './index';
 
 const disableArnsBasicAll = [
   'ACM.1',
@@ -161,34 +157,41 @@ const disableArnsCISAll = [
   '3.9',
   '4.3',
 ];
-const disableArnsCISNotCtHome = [
-  '1.12',
-  '1.13',
-  '1.16',
-  '1.2',
-  '1.2',
-];
+const disableArnsCISNotCtHome = ['1.12', '1.13', '1.16', '1.2', '1.2'];
 
 const controlTowerHomeRegion = 'ap-northeast-1';
 const auditAccountId = '123412341234';
 const auditRegion = 'ap-northeast-1';
 const roleName = 'swrole-from-blea';
 
-const app = new App();
-
-const AuditStack = new Stack(app, 'AuditStack',
-  {
-    env: {
-      account: auditAccountId,
-      region: auditRegion,
+const securityhubNotifyPattern = {
+  source: ['aws.securityhub'],
+  'detail-type': ['Security Hub Findings - Imported'],
+  detail: {
+    findings: {
+      Compliance: {
+        Status: ['FAILED', 'WARNING'],
+      },
+      Workflow: {
+        Status: ['NEW'],
+      },
     },
   },
-);
+};
+const app = new App();
+
+const AuditStack = new Stack(app, 'AuditStack', {
+  env: {
+    account: auditAccountId,
+    region: auditRegion,
+  },
+});
 
 const orgEvent = new OrgEvent(AuditStack, 'OrgEvent', {
   region: 'ap-northeast-1',
   accountId: '123456789012',
   kmsAliasName: 'jicOrgTest',
+  securityhubNotifyPattern: securityhubNotifyPattern,
 });
 
 new OrgSlack(AuditStack, 'OrgSlack', {

@@ -14,6 +14,7 @@ export interface EventSnsProps {
   readonly region: string;
   readonly accountId: string;
   readonly kmsAliasName: string;
+  readonly securityhubNotifyPattern: events.EventPattern;
 }
 
 export class OrgEvent extends Construct {
@@ -21,24 +22,11 @@ export class OrgEvent extends Construct {
   constructor(scope: Construct, id: string, props: EventSnsProps) {
     super(scope, id);
 
-    const { region, accountId, kmsAliasName } = props;
+    const { region, accountId, kmsAliasName, securityhubNotifyPattern } = props;
 
-    const SecurityhubNotifyPattern = {
-      'source': ['aws.securityhub'],
-      'detail-type': ['Security Hub Findings - Imported'],
-      'detail': {
-        findings: {
-          Compliance: {
-            Status: ['FAILED', 'WARNING'],
-          },
-          Workflow: {
-            Status: ['NEW'],
-          },
-        },
-      },
-    };
+    const eventPattern = securityhubNotifyPattern;
     const eventsRule = new events.Rule(this, 'events', {
-      eventPattern: SecurityhubNotifyPattern,
+      eventPattern: eventPattern,
     });
     const snsPrincipal = new iam.AnyPrincipal().withConditions({
       StringEquals: {
@@ -61,7 +49,7 @@ export class OrgEvent extends Construct {
     const principals = [];
     const eventsServicePrincipal = new iam.ServicePrincipal(
       ServicePrincipals.EVENTS,
-      {},
+      {}
     );
     principals.push(eventsServicePrincipal);
 
