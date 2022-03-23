@@ -2,6 +2,21 @@ import { App, Stack } from 'aws-cdk-lib';
 import { Template } from 'aws-cdk-lib/assertions';
 import { OrgEvent } from '../src';
 
+const securityhubNotifyPattern = {
+  'source': ['aws.securityhub'],
+  'detail-type': ['Security Hub Findings - Imported'],
+  'detail': {
+    findings: {
+      Compliance: {
+        Status: ['FAILED', 'WARNING'],
+      },
+      Workflow: {
+        Status: ['NEW'],
+      },
+    },
+  },
+};
+
 describe('orgEvent', () => {
   test('resouce count', () => {
     const app = new App();
@@ -11,6 +26,7 @@ describe('orgEvent', () => {
       region: 'ap-northeast-1',
       accountId: '123456789012',
       kmsAliasName: 'test-key',
+      securityhubNotifyPattern: securityhubNotifyPattern,
     });
 
     const template = Template.fromStack(stack);

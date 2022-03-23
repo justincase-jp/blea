@@ -278,6 +278,7 @@ const eventSnsProps: EventSnsProps = { ... }
 | [`accountId`](#bleaeventsnspropspropertyaccountid)<span title="Required">*</span> | `string` | *No description.* |
 | [`kmsAliasName`](#bleaeventsnspropspropertykmsaliasname)<span title="Required">*</span> | `string` | *No description.* |
 | [`region`](#bleaeventsnspropspropertyregion)<span title="Required">*</span> | `string` | *No description.* |
+| [`securityhubNotifyPattern`](#bleaeventsnspropspropertysecurityhubnotifypattern)<span title="Required">*</span> | [`aws-cdk-lib.aws_events.EventPattern`](#aws-cdk-lib.aws_events.EventPattern) | *No description.* |
 
 ---
 
@@ -308,6 +309,16 @@ public readonly region: string;
 ```
 
 - *Type:* `string`
+
+---
+
+##### `securityhubNotifyPattern`<sup>Required</sup> <a name="blea.EventSnsProps.property.securityhubNotifyPattern" id="bleaeventsnspropspropertysecurityhubnotifypattern"></a>
+
+```typescript
+public readonly securityhubNotifyPattern: EventPattern;
+```
+
+- *Type:* [`aws-cdk-lib.aws_events.EventPattern`](#aws-cdk-lib.aws_events.EventPattern)
 
 ---
 
