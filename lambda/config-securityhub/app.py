@@ -9,13 +9,15 @@ config_ct_home = boto3.client('config', region_name=controlTowerHomeRegion)
 
 
 def get_compliance_and_severity(new_status):
-    # This function returns the compliance status and severity of the finding
+    """Return compliance status."""
     status = ['FAILED', 3.0, 30]
     if new_status == 'COMPLIANT':
         status = ['PASSED', 0, 0]
+    elif new_status == 'NOT_APPLICABLE':
+        status = ['NOT_AVAILABLE', 0, 0]
     return status
 
-
+  
 def map_config_findings_to_sh(args):
     # This function import findings from aws-config to securityhub
     new_findings = []
