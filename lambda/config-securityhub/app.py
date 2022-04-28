@@ -17,7 +17,6 @@ def get_compliance_and_severity(new_status):
         status = ['NOT_AVAILABLE', 0, 0]
     return status
 
-  
 def map_config_findings_to_sh(args):
     # This function import findings from aws-config to securityhub
     new_findings = []
