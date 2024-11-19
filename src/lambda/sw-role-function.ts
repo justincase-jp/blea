@@ -17,7 +17,7 @@ export class SwRoleFunction extends lambda.Function {
     super(scope, id, {
       description: 'src/lambda/sw-role.lambda.ts',
       ...props,
-      runtime: lambda.Runtime.NODEJS_14_X,
+      runtime: new lambda.Runtime('nodejs18.x', lambda.RuntimeFamily.NODEJS),
       handler: 'index.handler',
       code: lambda.Code.fromAsset(path.join(__dirname, '../../assets/lambda/sw-role.lambda')),
     });
