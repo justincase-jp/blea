@@ -31,14 +31,16 @@
         "OUTFILE": "package.json",
         "CHANGELOG": "dist/changelog.md",
         "BUMPFILE": "dist/version.txt",
-        "RELEASETAG": "dist/releasetag.txt"
+        "RELEASETAG": "dist/releasetag.txt",
+        "RELEASE_TAG_PREFIX": "",
+        "BUMP_PACKAGE": "commit-and-tag-version@^12"
       },
       "steps": [
         {
           "builtin": "release/bump-version"
         }
       ],
-      "condition": "! git log --oneline -1 | grep -q \"chore(release):\""
+      "condition": "git log --oneline -1 | grep -qv \"chore(release):\""
     },
     "bundle": {
       "name": "bundle",
@@ -57,7 +59,7 @@
       "description": "Create a JavaScript bundle from src/lambda/disable-securityhub.lambda.ts",
       "steps": [
         {
-          "exec": "esbuild --bundle src/lambda/disable-securityhub.lambda.ts --target=\"node14\" --platform=\"node\" --outfile=\"assets/lambda/disable-securityhub.lambda/index.js\" --external:aws-sdk"
+          "exec": "esbuild --bundle src/lambda/disable-securityhub.lambda.ts --target=\"node18\" --platform=\"node\" --outfile=\"assets/lambda/disable-securityhub.lambda/index.js\" --tsconfig=\"tsconfig.dev.json\" --external:@aws-sdk/*"
         }
       ]
     },
@@ -66,7 +68,7 @@
       "description": "Continuously update the JavaScript bundle from src/lambda/disable-securityhub.lambda.ts",
       "steps": [
         {
-          "exec": "esbuild --bundle src/lambda/disable-securityhub.lambda.ts --target=\"node14\" --platform=\"node\" --outfile=\"assets/lambda/disable-securityhub.lambda/index.js\" --external:aws-sdk --watch"
+          "exec": "esbuild --bundle src/lambda/disable-securityhub.lambda.ts --target=\"node18\" --platform=\"node\" --outfile=\"assets/lambda/disable-securityhub.lambda/index.js\" --tsconfig=\"tsconfig.dev.json\" --external:@aws-sdk/* --watch"
         }
       ]
     },
@@ -75,7 +77,7 @@
       "description": "Create a JavaScript bundle from src/lambda/sw-role.lambda.ts",
       "steps": [
         {
-          "exec": "esbuild --bundle src/lambda/sw-role.lambda.ts --target=\"node14\" --platform=\"node\" --outfile=\"assets/lambda/sw-role.lambda/index.js\" --external:aws-sdk"
+          "exec": "esbuild --bundle src/lambda/sw-role.lambda.ts --target=\"node18\" --platform=\"node\" --outfile=\"assets/lambda/sw-role.lambda/index.js\" --tsconfig=\"tsconfig.dev.json\" --external:@aws-sdk/*"
         }
       ]
     },
@@ -84,7 +86,7 @@
       "description": "Continuously update the JavaScript bundle from src/lambda/sw-role.lambda.ts",
       "steps": [
         {
-          "exec": "esbuild --bundle src/lambda/sw-role.lambda.ts --target=\"node14\" --platform=\"node\" --outfile=\"assets/lambda/sw-role.lambda/index.js\" --external:aws-sdk --watch"
+          "exec": "esbuild --bundle src/lambda/sw-role.lambda.ts --target=\"node18\" --platform=\"node\" --outfile=\"assets/lambda/sw-role.lambda/index.js\" --tsconfig=\"tsconfig.dev.json\" --external:@aws-sdk/* --watch"
         }
       ]
     },
@@ -134,7 +136,7 @@
       "description": "Only compile",
       "steps": [
         {
-          "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+          "exec": "jsii --silence-warnings=reserved-word"
         }
       ]
     },
@@ -171,9 +173,31 @@
     "eslint": {
       "name": "eslint",
       "description": "Runs eslint against the codebase",
+      "env": {
+        "ESLINT_USE_FLAT_CONFIG": "false"
+      },
       "steps": [
         {
-          "exec": "eslint --ext .ts,.tsx --fix --no-error-on-unmatched-pattern src test build-tools .projenrc.js"
+          "exec": "eslint --ext .ts,.tsx --fix --no-error-on-unmatched-pattern $@ src test build-tools .projenrc.js",
+          "receiveArgs": true
+        }
+      ]
+    },
+    "install": {
+      "name": "install",
+      "description": "Install project dependencies and update lockfile (non-frozen)",
+      "steps": [
+        {
+          "exec": "yarn install --check-files"
+        }
+      ]
+    },
+    "install:ci": {
+      "name": "install:ci",
+      "description": "Install project dependencies using frozen lockfile",
+      "steps": [
+        {
+          "exec": "yarn install --check-files --frozen-lockfile"
         }
       ]
     },
@@ -182,10 +206,12 @@
       "description": "Creates the distribution package",
       "steps": [
         {
-          "exec": "mkdir -p dist"
+          "spawn": "package:js",
+          "condition": "node -e \"if (!process.env.CI) process.exit(1)\""
         },
         {
-          "exec": "rsync -a . dist --exclude .git --exclude node_modules"
+          "spawn": "package-all",
+          "condition": "node -e \"if (process.env.CI) process.exit(1)\""
         }
       ]
     },
@@ -203,10 +229,7 @@
       "description": "Create js language bindings",
       "steps": [
         {
-          "exec": "jsii_version=$(node -p \"JSON.parse(fs.readFileSync('.jsii')).jsiiVersion.split(' ')[0]\")"
-        },
-        {
-          "exec": "npx jsii-pacmak@$jsii_version -v --target js"
+          "exec": "jsii-pacmak -v --target js"
         }
       ]
     },
@@ -261,19 +284,11 @@
       "description": "Run tests",
       "steps": [
         {
-          "exec": "jest --passWithNoTests --all --updateSnapshot"
+          "exec": "jest --passWithNoTests --updateSnapshot",
+          "receiveArgs": true
         },
         {
           "spawn": "eslint"
-        }
-      ]
-    },
-    "test:update": {
-      "name": "test:update",
-      "description": "Update jest snapshots",
-      "steps": [
-        {
-          "exec": "jest --updateSnapshot"
         }
       ]
     },
@@ -293,7 +308,9 @@
         "OUTFILE": "package.json",
         "CHANGELOG": "dist/changelog.md",
         "BUMPFILE": "dist/version.txt",
-        "RELEASETAG": "dist/releasetag.txt"
+        "RELEASETAG": "dist/releasetag.txt",
+        "RELEASE_TAG_PREFIX": "",
+        "BUMP_PACKAGE": "commit-and-tag-version@^12"
       },
       "steps": [
         {
@@ -309,61 +326,13 @@
       },
       "steps": [
         {
-          "exec": "npm-check-updates --dep dev --upgrade --target=minor --reject='projen'"
-        },
-        {
-          "exec": "npm-check-updates --dep optional --upgrade --target=minor --reject='projen'"
-        },
-        {
-          "exec": "npm-check-updates --dep peer --upgrade --target=minor --reject='projen'"
-        },
-        {
-          "exec": "npm-check-updates --dep prod --upgrade --target=minor --reject='projen'"
-        },
-        {
-          "exec": "npm-check-updates --dep bundle --upgrade --target=minor --reject='projen'"
+          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=esbuild,eslint-import-resolver-typescript,eslint-plugin-import,jsii-diff,jsii-pacmak,projen,typescript,cdk-constants"
         },
         {
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade @aws-sdk/client-securityhub @aws-sdk/client-sts @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser aws-cdk-lib constructs esbuild eslint-import-resolver-node eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit jsii jsii-diff jsii-docgen json-schema npm-check-updates standard-version ts-jest typescript aws-cdk-lib constructs cdk-constants"
-        },
-        {
-          "exec": "npx projen"
-        },
-        {
-          "spawn": "post-upgrade"
-        }
-      ]
-    },
-    "upgrade-projen": {
-      "name": "upgrade-projen",
-      "description": "upgrade projen",
-      "env": {
-        "CI": "0"
-      },
-      "steps": [
-        {
-          "exec": "npm-check-updates --dep dev --upgrade --target=minor --filter='projen'"
-        },
-        {
-          "exec": "npm-check-updates --dep optional --upgrade --target=minor --filter='projen'"
-        },
-        {
-          "exec": "npm-check-updates --dep peer --upgrade --target=minor --filter='projen'"
-        },
-        {
-          "exec": "npm-check-updates --dep prod --upgrade --target=minor --filter='projen'"
-        },
-        {
-          "exec": "npm-check-updates --dep bundle --upgrade --target=minor --filter='projen'"
-        },
-        {
-          "exec": "yarn install --check-files"
-        },
-        {
-          "exec": "yarn upgrade projen"
+          "exec": "yarn upgrade @aws-sdk/client-securityhub @aws-sdk/client-sts @stylistic/eslint-plugin @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser commit-and-tag-version esbuild eslint-import-resolver-typescript eslint-plugin-import eslint jest-junit jest jsii-diff jsii-docgen jsii-pacmak jsii-rosetta jsii projen ts-jest typescript aws-cdk-lib constructs cdk-constants"
         },
         {
           "exec": "npx projen"
@@ -378,13 +347,13 @@
       "description": "Watch & compile in the background",
       "steps": [
         {
-          "exec": "jsii -w --silence-warnings=reserved-word --no-fix-peer-dependencies"
+          "exec": "jsii -w --silence-warnings=reserved-word"
         }
       ]
     }
   },
   "env": {
-    "PATH": "$(npx -c \"node -e \\\"console.log(process.env.PATH)\\\"\")"
+    "PATH": "$(npx -c \"node --print process.env.PATH\")"
   },
   "//": "~~ Generated by projen. To modify, edit .projenrc.js and run \"npx projen\"."
 }
