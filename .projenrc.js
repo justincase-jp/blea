@@ -14,9 +14,11 @@ const project = new awscdk.AwsCdkConstructLibrary({
   ], /* Runtime dependencies of this module. */
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
   depsUpgradeOptions: {
-    workflowOptions: {
-      schedule: javascript.UpgradeDependenciesSchedule.expressions(['0 0 * * 1']), // 毎週月曜日の朝9時
-    },
+    // NOTE: upgrade-main がこけるので無効化
+    workflow: false,
+    // workflowOptions: {
+    //   schedule: javascript.UpgradeDependenciesSchedule.expressions(['0 0 * * 1']), // 毎週月曜日の朝9時
+    // },
   },
   devDeps: [
     // 3.49.0以上だとcompile時にaws-sdk内部でType Errorがでるので固定する
