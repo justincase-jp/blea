@@ -5,9 +5,11 @@ const {
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'justincase-jp',
   authorAddress: '13391129+xhiroga@users.noreply.github.com',
-  cdkVersion: '2.12.0',
+  cdkVersion: '2.246.0',
   defaultReleaseBranch: 'main',
   name: 'blea',
+  minNodeVersion: '24.16.0',
+  packageManager: javascript.NodePackageManager.YARN_CLASSIC,
   repositoryUrl: 'ssh://git@github.com/justincase-jp/blea',
   deps: [
     'cdk-constants',

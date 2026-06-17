@@ -5,33 +5,33 @@
     "url": "ssh://git@github.com/justincase-jp/blea"
   },
   "scripts": {
-    "build": "npx projen build",
-    "bump": "npx projen bump",
-    "bundle": "npx projen bundle",
-    "bundle:lambda/disable-securityhub.lambda": "npx projen bundle:lambda/disable-securityhub.lambda",
-    "bundle:lambda/disable-securityhub.lambda:watch": "npx projen bundle:lambda/disable-securityhub.lambda:watch",
-    "bundle:lambda/sw-role.lambda": "npx projen bundle:lambda/sw-role.lambda",
-    "bundle:lambda/sw-role.lambda:watch": "npx projen bundle:lambda/sw-role.lambda:watch",
-    "clobber": "npx projen clobber",
-    "compat": "npx projen compat",
-    "compile": "npx projen compile",
-    "default": "npx projen default",
-    "docgen": "npx projen docgen",
-    "eject": "npx projen eject",
-    "eslint": "npx projen eslint",
-    "package": "npx projen package",
-    "package-all": "npx projen package-all",
-    "package:js": "npx projen package:js",
-    "post-compile": "npx projen post-compile",
-    "post-upgrade": "npx projen post-upgrade",
-    "pre-compile": "npx projen pre-compile",
-    "release": "npx projen release",
-    "test": "npx projen test",
-    "test:watch": "npx projen test:watch",
-    "unbump": "npx projen unbump",
-    "upgrade": "npx projen upgrade",
-    "watch": "npx projen watch",
-    "projen": "npx projen"
+    "build": "projen build",
+    "bump": "projen bump",
+    "bundle": "projen bundle",
+    "bundle:lambda/disable-securityhub.lambda": "projen bundle:lambda/disable-securityhub.lambda",
+    "bundle:lambda/disable-securityhub.lambda:watch": "projen bundle:lambda/disable-securityhub.lambda:watch",
+    "bundle:lambda/sw-role.lambda": "projen bundle:lambda/sw-role.lambda",
+    "bundle:lambda/sw-role.lambda:watch": "projen bundle:lambda/sw-role.lambda:watch",
+    "clobber": "projen clobber",
+    "compat": "projen compat",
+    "compile": "projen compile",
+    "default": "projen default",
+    "docgen": "projen docgen",
+    "eject": "projen eject",
+    "eslint": "projen eslint",
+    "package": "projen package",
+    "package-all": "projen package-all",
+    "package:js": "projen package:js",
+    "post-compile": "projen post-compile",
+    "post-upgrade": "projen post-upgrade",
+    "pre-compile": "projen pre-compile",
+    "release": "projen release",
+    "test": "projen test",
+    "test:watch": "projen test:watch",
+    "unbump": "projen unbump",
+    "upgrade": "projen upgrade",
+    "watch": "projen watch",
+    "projen": "projen"
   },
   "author": {
     "name": "justincase-jp",
@@ -43,30 +43,30 @@
     "@aws-sdk/client-sts": "3.49.0",
     "@stylistic/eslint-plugin": "^2",
     "@types/jest": "^27",
-    "@types/node": "^16 <= 16.18.78",
+    "@types/node": "^24",
     "@typescript-eslint/eslint-plugin": "^8",
     "@typescript-eslint/parser": "^8",
-    "aws-cdk-lib": "2.12.0",
+    "aws-cdk-lib": "2.246.0",
     "commit-and-tag-version": "^12",
-    "constructs": "10.0.5",
+    "constructs": "10.5.1",
     "esbuild": "0",
     "eslint": "^9",
     "eslint-import-resolver-typescript": "^2.7.1",
     "eslint-plugin-import": "^2.31.0",
     "jest": "^27",
-    "jest-junit": "^16",
-    "jsii": "~5.6.0",
+    "jest-junit": "^17",
+    "jsii": "~5.9.0",
     "jsii-diff": "^1.106.0",
     "jsii-docgen": "^10.5.0",
     "jsii-pacmak": "^1.106.0",
-    "jsii-rosetta": "~5.6.0",
-    "projen": "^0.91.12",
+    "jsii-rosetta": "~5.9.0",
+    "projen": "^0.99.74",
     "ts-jest": "^27",
     "typescript": "^4.9.5"
   },
   "peerDependencies": {
-    "aws-cdk-lib": "^2.12.0",
-    "constructs": "^10.0.5"
+    "aws-cdk-lib": "^2.246.0",
+    "constructs": "^10.5.1"
   },
   "dependencies": {
     "cdk-constants": "^3.0.3"
@@ -74,6 +74,16 @@
   "keywords": [
     "cdk"
   ],
+  "engines": {
+    "node": ">= 24.16.0"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "yarn",
+      "version": "1.22.22",
+      "onFail": "ignore"
+    }
+  },
   "main": "lib/index.js",
   "license": "Apache-2.0",
   "publishConfig": {

@@ -250,3 +250,22 @@ $ cdk synth --app='./lib/integ.xxxx.default.js'
 or
 $ cdk deploy --app='./lib/integ.xxxx.default.js'
 ```
+
+## How to upgrade dependencies (includes projen)
+### 1. Update `projen` version
+1. update `projen` cli version
+```shell
+yarn install projen
+```
+2. update project configuration
+```shell
+yarn projen
+```
+
+### 2. Update project dependencies
+1. update dependencies via `projen` cli
+```shell
+yarn upgrade
+```
+> [!IMPORTANT]
+> Don't modify `package.json` directly

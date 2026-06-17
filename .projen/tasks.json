@@ -59,7 +59,7 @@
       "description": "Create a JavaScript bundle from src/lambda/disable-securityhub.lambda.ts",
       "steps": [
         {
-          "exec": "esbuild --bundle src/lambda/disable-securityhub.lambda.ts --target=\"node18\" --platform=\"node\" --outfile=\"assets/lambda/disable-securityhub.lambda/index.js\" --tsconfig=\"tsconfig.dev.json\" --external:@aws-sdk/*"
+          "exec": "esbuild --bundle src/lambda/disable-securityhub.lambda.ts --target=\"node22\" --platform=\"node\" --outfile=\"assets/lambda/disable-securityhub.lambda/index.js\" --tsconfig=\"tsconfig.dev.json\" --external:@aws-sdk/*"
         }
       ]
     },
@@ -68,7 +68,7 @@
       "description": "Continuously update the JavaScript bundle from src/lambda/disable-securityhub.lambda.ts",
       "steps": [
         {
-          "exec": "esbuild --bundle src/lambda/disable-securityhub.lambda.ts --target=\"node18\" --platform=\"node\" --outfile=\"assets/lambda/disable-securityhub.lambda/index.js\" --tsconfig=\"tsconfig.dev.json\" --external:@aws-sdk/* --watch"
+          "exec": "esbuild --bundle src/lambda/disable-securityhub.lambda.ts --target=\"node22\" --platform=\"node\" --outfile=\"assets/lambda/disable-securityhub.lambda/index.js\" --tsconfig=\"tsconfig.dev.json\" --external:@aws-sdk/* --watch"
         }
       ]
     },
@@ -77,7 +77,7 @@
       "description": "Create a JavaScript bundle from src/lambda/sw-role.lambda.ts",
       "steps": [
         {
-          "exec": "esbuild --bundle src/lambda/sw-role.lambda.ts --target=\"node18\" --platform=\"node\" --outfile=\"assets/lambda/sw-role.lambda/index.js\" --tsconfig=\"tsconfig.dev.json\" --external:@aws-sdk/*"
+          "exec": "esbuild --bundle src/lambda/sw-role.lambda.ts --target=\"node22\" --platform=\"node\" --outfile=\"assets/lambda/sw-role.lambda/index.js\" --tsconfig=\"tsconfig.dev.json\" --external:@aws-sdk/*"
         }
       ]
     },
@@ -86,7 +86,7 @@
       "description": "Continuously update the JavaScript bundle from src/lambda/sw-role.lambda.ts",
       "steps": [
         {
-          "exec": "esbuild --bundle src/lambda/sw-role.lambda.ts --target=\"node18\" --platform=\"node\" --outfile=\"assets/lambda/sw-role.lambda/index.js\" --tsconfig=\"tsconfig.dev.json\" --external:@aws-sdk/* --watch"
+          "exec": "esbuild --bundle src/lambda/sw-role.lambda.ts --target=\"node22\" --platform=\"node\" --outfile=\"assets/lambda/sw-role.lambda/index.js\" --tsconfig=\"tsconfig.dev.json\" --external:@aws-sdk/* --watch"
         }
       ]
     },
@@ -174,7 +174,8 @@
       "name": "eslint",
       "description": "Runs eslint against the codebase",
       "env": {
-        "ESLINT_USE_FLAT_CONFIG": "false"
+        "ESLINT_USE_FLAT_CONFIG": "false",
+        "NODE_NO_WARNINGS": "1"
       },
       "steps": [
         {
@@ -326,7 +327,7 @@
       },
       "steps": [
         {
-          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@types/jest,@types/node,esbuild,eslint-import-resolver-typescript,eslint-plugin-import,jest,jsii-diff,jsii-pacmak,projen,ts-jest,typescript,cdk-constants"
+          "exec": "npx npm-check-updates@20 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@types/jest,esbuild,eslint-import-resolver-typescript,eslint-plugin-import,jest,jsii-diff,jsii-pacmak,projen,ts-jest,typescript,cdk-constants"
         },
         {
           "exec": "yarn install --check-files"
