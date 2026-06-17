@@ -43,6 +43,7 @@ new OrgAccountInit(scope: Construct, id: string, props: OrgAccountInitProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#blea.OrgAccountInit.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#blea.OrgAccountInit.with">with</a></code> | Applies one or more mixins to this construct. |
 
 ---
 
@@ -54,6 +55,27 @@ public toString(): string
 
 Returns a string representation of this construct.
 
+##### `with` <a name="with" id="blea.OrgAccountInit.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="blea.OrgAccountInit.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
+
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
 | **Name** | **Description** |
@@ -62,7 +84,7 @@ Returns a string representation of this construct.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="blea.OrgAccountInit.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="blea.OrgAccountInit.isConstruct"></a>
 
 ```typescript
 import { OrgAccountInit } from 'blea'
@@ -71,6 +93,20 @@ OrgAccountInit.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="blea.OrgAccountInit.isConstruct.parameter.x"></a>
 
@@ -142,6 +178,7 @@ new OrgConfigRules(scope: Construct, id: string, props: OrgConfigRulesProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#blea.OrgConfigRules.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#blea.OrgConfigRules.with">with</a></code> | Applies one or more mixins to this construct. |
 
 ---
 
@@ -153,6 +190,27 @@ public toString(): string
 
 Returns a string representation of this construct.
 
+##### `with` <a name="with" id="blea.OrgConfigRules.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="blea.OrgConfigRules.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
+
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
 | **Name** | **Description** |
@@ -161,7 +219,7 @@ Returns a string representation of this construct.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="blea.OrgConfigRules.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="blea.OrgConfigRules.isConstruct"></a>
 
 ```typescript
 import { OrgConfigRules } from 'blea'
@@ -170,6 +228,20 @@ OrgConfigRules.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="blea.OrgConfigRules.isConstruct.parameter.x"></a>
 
@@ -241,6 +313,7 @@ new OrgConfigSecurityhub(scope: Construct, id: string, props: Props)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#blea.OrgConfigSecurityhub.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#blea.OrgConfigSecurityhub.with">with</a></code> | Applies one or more mixins to this construct. |
 
 ---
 
@@ -252,6 +325,27 @@ public toString(): string
 
 Returns a string representation of this construct.
 
+##### `with` <a name="with" id="blea.OrgConfigSecurityhub.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="blea.OrgConfigSecurityhub.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
+
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
 | **Name** | **Description** |
@@ -260,7 +354,7 @@ Returns a string representation of this construct.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="blea.OrgConfigSecurityhub.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="blea.OrgConfigSecurityhub.isConstruct"></a>
 
 ```typescript
 import { OrgConfigSecurityhub } from 'blea'
@@ -269,6 +363,20 @@ OrgConfigSecurityhub.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="blea.OrgConfigSecurityhub.isConstruct.parameter.x"></a>
 
@@ -340,6 +448,7 @@ new OrgEvent(scope: Construct, id: string, props: EventSnsProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#blea.OrgEvent.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#blea.OrgEvent.with">with</a></code> | Applies one or more mixins to this construct. |
 
 ---
 
@@ -351,6 +460,27 @@ public toString(): string
 
 Returns a string representation of this construct.
 
+##### `with` <a name="with" id="blea.OrgEvent.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="blea.OrgEvent.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
+
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
 | **Name** | **Description** |
@@ -359,7 +489,7 @@ Returns a string representation of this construct.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="blea.OrgEvent.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="blea.OrgEvent.isConstruct"></a>
 
 ```typescript
 import { OrgEvent } from 'blea'
@@ -368,6 +498,20 @@ OrgEvent.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="blea.OrgEvent.isConstruct.parameter.x"></a>
 
@@ -450,6 +594,7 @@ new OrgRoleStackSet(scope: Construct, id: string, props: OrgRoleStackSetProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#blea.OrgRoleStackSet.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#blea.OrgRoleStackSet.with">with</a></code> | Applies one or more mixins to this construct. |
 
 ---
 
@@ -461,6 +606,27 @@ public toString(): string
 
 Returns a string representation of this construct.
 
+##### `with` <a name="with" id="blea.OrgRoleStackSet.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="blea.OrgRoleStackSet.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
+
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
 | **Name** | **Description** |
@@ -469,7 +635,7 @@ Returns a string representation of this construct.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="blea.OrgRoleStackSet.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="blea.OrgRoleStackSet.isConstruct"></a>
 
 ```typescript
 import { OrgRoleStackSet } from 'blea'
@@ -478,6 +644,20 @@ OrgRoleStackSet.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="blea.OrgRoleStackSet.isConstruct.parameter.x"></a>
 
@@ -549,6 +729,7 @@ new OrgSlack(scope: Construct, id: string, props: OrgSlackProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#blea.OrgSlack.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#blea.OrgSlack.with">with</a></code> | Applies one or more mixins to this construct. |
 
 ---
 
@@ -560,6 +741,27 @@ public toString(): string
 
 Returns a string representation of this construct.
 
+##### `with` <a name="with" id="blea.OrgSlack.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="blea.OrgSlack.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
+
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
 | **Name** | **Description** |
@@ -568,7 +770,7 @@ Returns a string representation of this construct.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="blea.OrgSlack.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="blea.OrgSlack.isConstruct"></a>
 
 ```typescript
 import { OrgSlack } from 'blea'
@@ -577,6 +779,20 @@ OrgSlack.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="blea.OrgSlack.isConstruct.parameter.x"></a>
 
